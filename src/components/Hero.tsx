@@ -47,12 +47,12 @@ const Hero = () => {
           <div className="relative mb-8">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
               <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent bg-300% animate-[gradient_3s_ease-in-out_infinite]">
+                <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-pulse">
                   Developer Name
                 </span>
               </span>
               <span className="block mt-2 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <span className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-clip-text text-transparent bg-300% animate-[gradient_3s_ease-in-out_infinite_reverse]">
+                <span className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-clip-text text-transparent animate-pulse">
                   {t('hero.role')}
                 </span>
               </span>
@@ -121,15 +121,6 @@ const Hero = () => {
           </a>  
         </div>
       </div>
-
-      {/* Add custom keyframes for gradient animation */}
-      <style jsx>{`
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .bg-300\\% { background-size: 300% 300%; }
-      `}</style>
     </section>
   );
 };
