@@ -10,24 +10,37 @@ import next from '../assets/icons-globe/next.png';
 import node from '../assets/icons-globe/node.png';
 import react from '../assets/icons-globe/react.png';
 import tailwind from '../assets/icons-globe/tailwind.png';
+import git from '../assets/icons-globe/git.png';
+import github from '../assets/icons-globe/github.png';
+import html from '../assets/icons-globe/html.png';
+import css from '../assets/icons-globe/css.png';
+import mysql from '../assets/icons-globe/mysql.png';
+import arduino from '../assets/icons-globe/arduino.png';
 
 interface Skill {
   name: string;
-  icon: string; // URL/path to icon
-  level: 'basic' | 'intermediate' | 'advanced';
+  icon: string; 
+  desc: string;
 }
 
 const Skills = () => {
   const { t } = useLanguage();
   const skills: Skill[] = [
-    { name: 'React', icon: react, level: 'advanced' },
-    { name: 'JavaScript', icon: javascript, level: 'advanced' },
-    { name: 'Node.js', icon: node, level: 'intermediate' },
-    { name: 'Java', icon: java, level: 'intermediate' },
-    { name: 'Python', icon: python, level: 'intermediate' },
-    { name: 'MongoDB', icon: mongo, level: 'intermediate' },
-    { name: 'Next.js', icon: next, level: 'intermediate' },
-    { name: 'Tailwind CSS', icon: tailwind, level: 'intermediate' },
+    { name: 'React', icon: react, desc: 'React' },
+    { name: 'JavaScript', icon: javascript, desc: 'JavaScript' },
+    { name: 'Node.js', icon: node, desc: 'Node.js' },
+    { name: 'Java', icon: java, desc: 'Java' },
+    { name: 'Python', icon: python, desc: 'Python' },
+    { name: 'MongoDB', icon: mongo, desc: 'MongoDB' },
+    { name: 'Next.js', icon: next, desc: 'Next.js' },
+    { name: 'Tailwind CSS', icon: tailwind, desc: 'Tailwind CSS' },
+    { name: 'Git', icon: '/icons/git.svg', desc: 'Git' },
+    { name: 'GitHub', icon: '/icons/github.svg', desc: 'GitHub' },
+    { name : 'HTML', icon: '/icons/html.svg', desc: 'HTML' },
+    { name : 'CSS', icon: '/icons/css.svg', desc: 'CSS' },
+    { name : 'MySQL', icon: '/icons/bootstrap.svg', desc: 'MySQL' },
+    { name : 'Arduino', icon: '/icons/bootstrap.svg', desc: 'Arduino' },
+    
   ];
   
 
@@ -45,7 +58,7 @@ const Skills = () => {
           <div className="space-y-6">
             <div className="bg-card/50 dark:bg-gray-800/50 rounded-lg p-8 border border-border/50">
               <div className="flex items-center justify-center h-55">
-                <IconCloud images={[java, javascript, python, mongo, next, node, react, tailwind  ]} 
+                <IconCloud images={[java, javascript, python, mongo, next, node, react, tailwind, git, github, html, css, mysql, arduino]} 
                 iconSize={60}
                 height={400}
                 />
@@ -99,7 +112,7 @@ const Skills = () => {
                         {/* Nível por extenso */}
                         <div className="flex justify-center mt-3">
                           <span className="px-3 py-1 text-xs rounded-full font-medium bg-primary/10 text-primary border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-300">
-                            {t(`skills.${skill.level}`)}
+                            {t(`skills.${skill.desc}`)}
                           </span>
                         </div>
                       </div>
