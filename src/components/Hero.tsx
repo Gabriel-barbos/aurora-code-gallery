@@ -9,7 +9,6 @@ const Hero = () => {
   
   return (
     <section id="home" className="min-h-screen flex items-center py-20 relative overflow-hidden">
-      {/* Enhanced Background elements with animated gradients */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-b from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-t from-blue-500/15 via-primary/5 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
@@ -48,7 +47,7 @@ const Hero = () => {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight">
               <span className="block animate-fade-in" style={{ animationDelay: '0.2s' }}>
                 <span className="bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-pulse">
-                  Developer Name
+                  Gabriel Barbosa
                 </span>
               </span>
               <span className="block mt-2 animate-fade-in" style={{ animationDelay: '0.4s' }}>
@@ -63,22 +62,16 @@ const Hero = () => {
             <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-primary/20 rounded-full animate-pulse" />
           </div>
           
-          {/* Enhanced description with better typography */}
+          {/* mini-description */}
           <div className="relative mb-10 animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              <span className="font-semibold text-foreground">Full-stack developer</span> apaixonado por criar 
-              <span className="text-primary font-medium"> soluções elegantes e eficientes</span> para problemas complexos. 
-              Especializado em <span className="font-semibold text-foreground">React, Node.js</span> e tecnologias web modernas.
+              <span className="font-semibold text-foreground">Estudante de Desenvolvimento de Software Multiplataforma </span> empenhado em criar 
+              <span className="text-primary font-medium"> soluções inovadoras e eficientes</span> para problemas diversos. 
             </p>
             
-            {/* Status indicator */}
-            <div className="flex items-center mt-4 gap-2">
-              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm text-muted-foreground">Disponível para novos projetos</span>
-            </div>
           </div>
           
-          {/* Enhanced action buttons with better spacing and effects */}
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 mb-8 animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <Button size="lg" className="group relative overflow-hidden px-8 py-4 text-lg font-semibold" asChild>
               <a href="#projects">
@@ -95,18 +88,29 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Social links with hover effects */}
-          <div className="flex gap-4 animate-fade-in" style={{ animationDelay: '1s' }}>
-            <Button variant="ghost" size="icon" className="rounded-full hover:scale-110 hover:bg-primary/10 transition-all duration-300">
-              <Github className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="rounded-full hover:scale-110 hover:bg-primary/10 transition-all duration-300">
-              <Linkedin className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon" className="rounded-full hover:scale-110 hover:bg-primary/10 transition-all duration-300">
-              <Mail className="h-5 w-5" />
-            </Button>
-          </div>
+          {/* Social links*/} 
+
+
+<div className="flex gap-4 animate-fade-in" style={{ animationDelay: '1s' }}>
+  <Button asChild variant="ghost" size="icon" className="rounded-full hover:scale-110 hover:bg-primary/10 transition-all duration-300">
+    <a href="https://github.com/Gabriel-barbos" target="_blank" rel="noopener noreferrer">
+      <Github className="h-5 w-5" />
+    </a>
+  </Button>
+
+  <Button asChild variant="ghost" size="icon" className="rounded-full hover:scale-110 hover:bg-primary/10 transition-all duration-300">
+    <a href="https://www.linkedin.com/in/gabriel-barbosa-da-silva-35bb19256/" target="_blank" rel="noopener noreferrer">
+      <Linkedin className="h-5 w-5" />
+    </a>
+  </Button>
+
+  <Button asChild variant="ghost" size="icon" className="rounded-full hover:scale-110 hover:bg-primary/10 transition-all duration-300">
+    <a href="mailto:gabriel.barbosa79@outlook.com">
+      <Mail className="h-5 w-5" />
+    </a>
+  </Button>
+</div>
+
         </div>
       </div>
       
