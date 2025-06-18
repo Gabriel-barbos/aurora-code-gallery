@@ -5,6 +5,7 @@ import { ExternalLink, Github, CheckCircle } from 'lucide-react';
 import { Button } from './ui/moving-border';
 import GitHubButton from './GithubButton';
 
+
 interface Project {
   id: number;
   title: string;
@@ -31,24 +32,23 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: 'E-commerce Platform',
-      description: 'A full-stack e-commerce platform with cart functionality, user authentication, and payment processing.',
+      title: 'Impermaq',
+      description: 'Site para vitrine de produtos e serviços e vendas',
       features: [
-        'User authentication & profiles',
-        'Shopping cart & checkout',
-        'Payment integration with Stripe',
-        'Order tracking system',
+        'cadastro de produtos',
+        'Controle de acesso para administradores',
+        'Responsivo',
+        'integração com Whatsapp para orçamentos',
         'Admin dashboard'
       ],
-      image: 'https://via.placeholder.com/600x400',
-      previewUrl: '#',
-      repoUrl: '#',
+      image: '/src/assets/projects/impermaq.png',
+      previewUrl: 'https://www.impermaq.com.br',
+      repoUrl: 'https://github.com/Gabriel-barbos/impermaq-V2',
       technologies: [
-        { name: 'React', icon: '/icons/react-blue.svg' },
-        { name: 'Node.js', icon: '/icons/nodejs-blue.svg' },
-        { name: 'Express', icon: '/icons/express-blue.svg' },
-        { name: 'MongoDB', icon: '/icons/mongodb-blue.svg' },
-        { name: 'Stripe', icon: '/icons/stripe-blue.svg' }
+        { name: 'React', icon: '../assets/icons/reactBlue.png' },
+        { name: 'Node.js', icon: '/assets/icons/nodeBlue.png' },
+        { name: 'MongoDB', icon: '/assets/icons/mongoBlue.png' },
+        { name: 'JavaScript', icon: '/assets/icons/JSBlue.png' }
       ],
     },
     {
