@@ -12,7 +12,7 @@ import github from '../assets/icons/github2.webp';
 import fastapi from '../assets/icons-globe/fastapi.png';
 import aceternity from "../assets/icons/aceternity.png";
 import antdesign from "../assets/icons/antdesign.svg";
-import autocad from "../assets/icons/autocad.png";
+import autocad from "../assets/icons/autocad2.png";
 import bootstrap from "../assets/icons/bootstrap.png";
 import canva from "../assets/icons/canva.png";
 import excel from "../assets/icons/excel.png";
