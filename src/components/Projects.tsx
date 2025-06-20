@@ -4,7 +4,14 @@ import { Card, CardContent, CardHeader } from './ui/card';
 import { ExternalLink, Github, CheckCircle } from 'lucide-react';
 import { Button } from './ui/moving-border';
 import GitHubButton from './GithubButton';
+import { Safari } from '@/components/magicui/safari';
 
+import jsBlue from "../assets/icons/JSBlue.png"
+import mongoBlue from "../assets/icons/mongoBlue.png"
+import nodeBlue from "../assets/icons/nodeBlue.png"
+import ReactBlue from "../assets/icons/reactBlue.png"
+import impermaq from "../assets/projects/impermaq.png"
+import vendas from "../assets/projects/sale.png"
 
 interface Project {
   id: number;
@@ -14,122 +21,61 @@ interface Project {
   image: string;
   previewUrl: string;
   repoUrl: string;
+  url: string; // URL para mostrar no Safari mockup
   technologies: {
     name: string;
-    icon: string; // Caminho para o arquivo do ícone
+    icon: string; 
   }[];
 }
-
-// Componente de botão GitHub customizado com animações
-
 
 const Projects = () => {
   const { t } = useLanguage();
   const [visibleProjects, setVisibleProjects] = useState(3);
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   
-  // Sample projects data com caminhos para ícones manuais
   const projects: Project[] = [
     {
       id: 1,
-      title: 'Impermaq',
-      description: 'Site para vitrine de produtos e serviços e vendas',
+      title: 'Impermaq Máquinas',
+      description: 'Site para vitrine de produtos e serviços e vendas de maquinas industriais',
       features: [
-        'cadastro de produtos',
+        'Cadastro de produtos',
         'Controle de acesso para administradores',
         'Responsivo',
         'integração com Whatsapp para orçamentos',
         'Admin dashboard'
       ],
-      image: '/src/assets/projects/impermaq.png',
+      image: impermaq,
       previewUrl: 'https://www.impermaq.com.br',
       repoUrl: 'https://github.com/Gabriel-barbos/impermaq-V2',
+      url: 'impermaq.com.br',
       technologies: [
-        { name: 'React', icon: '../assets/icons/reactBlue.png' },
-        { name: 'Node.js', icon: '/assets/icons/nodeBlue.png' },
-        { name: 'MongoDB', icon: '/assets/icons/mongoBlue.png' },
-        { name: 'JavaScript', icon: '/assets/icons/JSBlue.png' }
+        { name: 'React', icon: ReactBlue },
+        { name: 'Node.js', icon: nodeBlue },
+        { name: 'MongoDB', icon: mongoBlue },
+        { name: 'JavaScript', icon: jsBlue }
       ],
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A productivity app for managing tasks with drag-and-drop functionality and team collaboration features.',
+      title: 'Sistema de Vendas',
+      description: 'Sistema completo de frente de caixa com gestao de produtos, estoque e relatórios',
       features: [
-        'Drag & drop task organization',
-        'Team collaboration tools',
-        'Real-time updates',
-        'Progress tracking',
-        'File attachments'
+        'Sistema de estoque e venda',
+        'Dashboard de relatórios e gráficos',
+        'Cadastro de Produtos',
+        'Operadores e Administradores',
+        'Abertura e fechamento de Caixa'
       ],
-      image: 'https://via.placeholder.com/600x400',
-      previewUrl: '#',
-      repoUrl: '#',
+      image: vendas,
+      previewUrl: 'https://sistema-de-vendas2.vercel.app/',
+      repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
+      url: 'https://sistema-de-vendas2.vercel.app/',
       technologies: [
-        { name: 'React', icon: '/icons/react-blue.svg' },
-        { name: 'Redux', icon: '/icons/redux-blue.svg' },
-        { name: 'TypeScript', icon: '/icons/typescript-blue.svg' },
-        { name: 'Firebase', icon: '/icons/firebase-blue.svg' }
-      ],
-    },
-    {
-      id: 3,
-      title: 'Portfolio Website',
-      description: 'A modern portfolio website showcasing projects and skills with dark mode and animations.',
-      features: [
-        'Responsive design',
-        'Dark/Light mode toggle',
-        'Smooth animations',
-        'Contact form integration',
-        'SEO optimized'
-      ],
-      image: 'https://via.placeholder.com/600x400',
-      previewUrl: '#',
-      repoUrl: '#',
-      technologies: [
-        { name: 'React', icon: '/icons/react-blue.svg' },
-        { name: 'Tailwind CSS', icon: '/icons/tailwind-blue.svg' },
-        { name: 'JavaScript', icon: '/icons/javascript-blue.svg' }
-      ],
-    },
-    {
-      id: 4,
-      title: 'Weather Dashboard',
-      description: 'A weather application that displays forecast data using external APIs and interactive charts.',
-      features: [
-        '7-day weather forecast',
-        'Interactive weather maps',
-        'Location-based search',
-        'Weather alerts',
-        'Data visualization charts'
-      ],
-      image: 'https://via.placeholder.com/600x400',
-      previewUrl: '#',
-      repoUrl: '#',
-      technologies: [
-        { name: 'JavaScript', icon: '/icons/javascript-blue.svg' },
-        { name: 'HTML', icon: '/icons/html-blue.svg' },
-        { name: 'CSS', icon: '/icons/css-blue.svg' }
-      ],
-    },
-    {
-      id: 5,
-      title: 'Recipe Finder',
-      description: 'An app to discover and save recipes with filtering by ingredients and dietary restrictions.',
-      features: [
-        'Recipe search & filtering',
-        'Dietary restriction options',
-        'Save favorite recipes',
-        'Shopping list generator',
-        'Nutritional information'
-      ],
-      image: 'https://via.placeholder.com/600x400',
-      previewUrl: '#',
-      repoUrl: '#',
-      technologies: [
-        { name: 'React', icon: '/icons/react-blue.svg' },
-        { name: 'Node.js', icon: '/icons/nodejs-blue.svg' },
-        { name: 'MongoDB', icon: '/icons/mongodb-blue.svg' }
+        { name: 'React', icon: ReactBlue },
+        { name: 'JavaScript', icon: jsBlue },
+        { name: 'Node.js', icon: nodeBlue },
+        { name: 'MongoDB', icon: mongoBlue }
       ],
     },
   ];
@@ -143,15 +89,17 @@ const Projects = () => {
       <div className="container-section">
         <h2 className="section-title">{t('projects.title')}</h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8 mt-10">
           {projects.slice(0, visibleProjects).map((project) => (
             <Card 
               key={project.id} 
-              className="group relative bg-white/5 backdrop-blur-sm border border-white/10 
-                         hover:border-blue-500/50 transition-all duration-500 
+              className="group relative bg-white/5 backdrop-blur-sm border-2 border-white/10 
+                         hover:border-blue-500/40 transition-all duration-500 
                          hover:shadow-2xl hover:shadow-blue-500/20 overflow-hidden 
                          flex flex-col h-full hover:scale-[1.02] hover:-translate-y-2
-                         cursor-pointer"
+                         cursor-pointer rounded-xl shadow-lg shadow-black/5
+                         before:absolute before:inset-0 before:rounded-xl before:border before:border-white/5
+                         after:absolute after:inset-0 after:rounded-xl after:border after:border-black/5"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
@@ -159,25 +107,29 @@ const Projects = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 
                               opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               
-              {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 
-                           group-hover:scale-110 group-hover:brightness-110"
-                />
-                {/* Overlay com efeito de fade mais suave */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent 
-                                opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Indicador de hover com pulse */}
-                <div className={`absolute top-4 right-4 w-3 h-3 rounded-full bg-blue-500 
-                                transition-all duration-300 ${
-                                  hoveredProject === project.id 
-                                    ? 'opacity-100 animate-pulse scale-125' 
-                                    : 'opacity-0 scale-100'
-                                }`} />
+              {/* Safari Mockup Container */}
+              <div className="relative h-64 overflow-hidden bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-900 
+                              border-b border-white/10 dark:border-black/10">
+                <div className="relative h-full w-full p-2">
+                  <Safari 
+                    url={project.url} 
+                    imageSrc={project.image}
+                    className="w-full h-full transition-all duration-700 
+                             group-hover:scale-[1.02] group-hover:brightness-110"
+                  />
+                  
+                  {/* Overlay com efeito de fade mais suave */}
+                  <div className="absolute inset-2 bg-gradient-to-t from-black/80 via-black/20 to-transparent 
+                                  opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
+                  
+                  {/* Indicador de hover com pulse */}
+                  <div className={`absolute top-4 right-4 w-3 h-3 rounded-full bg-blue-500 
+                                  transition-all duration-300 z-20 ${
+                                    hoveredProject === project.id 
+                                      ? 'opacity-100 animate-pulse scale-125' 
+                                      : 'opacity-0 scale-100'
+                                  }`} />
+                </div>
               </div>
               
               {/* Card Content */}
@@ -260,20 +212,20 @@ const Projects = () => {
                 
                 {/* Action Buttons - Altura ajustada */}
                 <div className="flex gap-3 pt-7 mt-auto">
-                <Button
-  borderRadius="1.75rem"
-  className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 py-2 px-4 h-12 w-36 "
->
-  <a
-    href={project.previewUrl}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center font-medium text-sm"
-  >
-    <ExternalLink className="h-4 w-4 mr-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
-    Preview
-  </a>
-</Button>
+                  <Button
+                    borderRadius="1.75rem"
+                    className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 py-2 px-4 h-12 w-36"
+                  >
+                    <a
+                      href={project.previewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center font-medium text-sm"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-12" />
+                      Preview
+                    </a>
+                  </Button>
 
                   {/* Botão GitHub customizado com altura ajustada */}
                   <GitHubButton href={project.repoUrl}>
