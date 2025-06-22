@@ -135,7 +135,7 @@
         title: 'Ferramentas & Software',
       },
       contact: {
-        title: 'Entre em Contato',
+        title: 'Contate-me',
         name: 'Nome',
         email: 'Email',
         message: 'Mensagem',

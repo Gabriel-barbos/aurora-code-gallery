@@ -1,26 +1,37 @@
-import React from 'react';
+import React from "react";
 
-export const BackgroundGradient = ({ children, className = "", containerClassName = "" }) => {
+interface BackgroundGradientProps {
+  children: React.ReactNode;
+  className?: string;
+  containerClassName?: string;
+}
+
+export const BackgroundGradient: React.FC<BackgroundGradientProps> = ({
+  children,
+  className = "",
+  containerClassName = "",
+}) => {
   return (
-    <div className={`relative p-[4px] group ${containerClassName}`}>
+    <div
+      className={`relative group/card ${containerClassName}`}
+    >
       <div
-        className="absolute inset-0 rounded-[22px] p-[2px] bg-gradient-to-r from-blue-500 via-purple-500 via-pink-500 to-orange-500 opacity-75 group-hover:opacity-100 transition-opacity duration-500"
+        className={`absolute -inset-0.5 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 rounded-lg blur-sm opacity-60 group-hover/card:opacity-90 transition-all duration-700 ease-in-out ${containerClassName}`}
         style={{
-          background: 'linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #f97316, #10b981, #3b82f6)',
-          backgroundSize: '400% 400%',
-          animation: 'gradient-animation 8s ease infinite',
+          animation: 'gradient-shift 4s ease-in-out infinite alternate'
         }}
       />
-      <div className={`relative bg-white dark:bg-zinc-900 rounded-[20px] ${className}`}>
+      <div
+        className={`relative bg-background/95 backdrop-blur-sm rounded-lg ${className}`}
+      >
         {children}
+        <style jsx>{`
+          @keyframes gradient-shift {
+            0% { filter: hue-rotate(0deg) blur(2px); }
+            100% { filter: hue-rotate(30deg) blur(1px); }
+          }
+        `}</style>
       </div>
-      <style jsx>{`
-        @keyframes gradient-animation {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
     </div>
   );
 };

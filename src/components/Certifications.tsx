@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { ExternalLink, Calendar, Award, BookOpen, GraduationCap } from 'lucide-react';
+import { ExternalLink, Calendar, Award, BookOpen, GraduationCap, Star } from 'lucide-react';
 import { Button } from './ui/button';
-import SpecialCertificationCard from '../components/ui/SpecialCertificationCard'; 
+import { BackgroundGradient } from './ui/background-gradient';
 
 import google from "../assets/icons/google.png"
 import ibm from "../assets/icons/ibm.png"
@@ -21,74 +21,81 @@ interface Certification {
   credentialUrl: string;
   skills: string[];
   type: 'certification' | 'course';
-  theme: 'google' | 'azure' | 'ibm' | 'dio' | 'santander' | 'aws' | 'meta' | 'default';
-  isSpecial?: boolean; 
-  description?: string; 
+  theme: 'google' | 'azure' | 'ibm' | 'dio' | 'santander' | 'aws' | 'meta' | 'special' | 'default';
 }
 
 const themes = {
   google: {
     gradient: 'from-blue-500 via-red-500 via-yellow-500 to-green-500',
-    borderColor: 'border-blue-200',
-    hoverBorder: 'hover:border-blue-400',
-    accentColor: 'text-blue-600',
-    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-    shadow: 'shadow-blue-100',
-    hoverShadow: 'hover:shadow-blue-200'
+    borderColor: 'border-blue-200 dark:border-blue-800',
+    hoverBorder: 'hover:border-blue-400 dark:hover:border-blue-600',
+    accentColor: 'text-blue-600 dark:text-blue-400',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700',
+    shadow: 'shadow-md',
+    hoverShadow: 'hover:shadow-lg'
   },
   azure: {
     gradient: 'from-blue-600 to-blue-800',
-    borderColor: 'border-blue-300',
-    hoverBorder: 'hover:border-blue-500',
-    accentColor: 'text-blue-700',
-    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-    shadow: 'shadow-blue-100',
-    hoverShadow: 'hover:shadow-blue-200'
+    borderColor: 'border-blue-300 dark:border-blue-700',
+    hoverBorder: 'hover:border-blue-500 dark:hover:border-blue-500',
+    accentColor: 'text-blue-700 dark:text-blue-300',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/30 dark:text-blue-300 dark:border-blue-700',
+    shadow: 'shadow-md',
+    hoverShadow: 'hover:shadow-lg'
   },
   ibm: {
     gradient: 'from-blue-800 to-gray-900',
-    borderColor: 'border-slate-300',
-    hoverBorder: 'hover:border-blue-600',
-    accentColor: 'text-blue-800',
-    badgeColor: 'bg-slate-100 text-slate-800 border-slate-200',
-    shadow: 'shadow-slate-100',
-    hoverShadow: 'hover:shadow-blue-200'
+    borderColor: 'border-slate-300 dark:border-slate-600',
+    hoverBorder: 'hover:border-blue-600 dark:hover:border-blue-500',
+    accentColor: 'text-blue-800 dark:text-blue-300',
+    badgeColor: 'bg-slate-100 text-slate-800 border-slate-200 dark:bg-slate-800/50 dark:text-slate-300 dark:border-slate-600',
+    shadow: 'shadow-md',
+    hoverShadow: 'hover:shadow-lg'
   },
   dio: {
     gradient: 'from-purple-600 to-pink-600',
-    borderColor: 'border-purple-200',
-    hoverBorder: 'hover:border-purple-400',
-    accentColor: 'text-purple-700',
-    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
-    shadow: 'shadow-purple-100',
-    hoverShadow: 'hover:shadow-purple-200'
+    borderColor: 'border-purple-200 dark:border-purple-700',
+    hoverBorder: 'hover:border-purple-400 dark:hover:border-purple-500',
+    accentColor: 'text-purple-700 dark:text-purple-300',
+    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-700',
+    shadow: 'shadow-md',
+    hoverShadow: 'hover:shadow-lg'
   },
   santander: {
     gradient: 'from-red-600 to-red-800',
-    borderColor: 'border-red-200',
-    hoverBorder: 'hover:border-red-400',
-    accentColor: 'text-red-700',
-    badgeColor: 'bg-red-100 text-red-800 border-red-200',
-    shadow: 'shadow-red-100',
-    hoverShadow: 'hover:shadow-red-200'
+    borderColor: 'border-red-200 dark:border-red-800',
+    hoverBorder: 'hover:border-red-400 dark:hover:border-red-600',
+    accentColor: 'text-red-700 dark:text-red-400',
+    badgeColor: 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-300 dark:border-red-700',
+    shadow: 'shadow-md',
+    hoverShadow: 'hover:shadow-lg'
   },
   aws: {
     gradient: 'from-orange-500 to-yellow-600',
-    borderColor: 'border-orange-200',
-    hoverBorder: 'hover:border-orange-400',
-    accentColor: 'text-orange-700',
-    badgeColor: 'bg-orange-100 text-orange-800 border-orange-200',
-    shadow: 'shadow-orange-100',
-    hoverShadow: 'hover:shadow-orange-200'
+    borderColor: 'border-orange-200 dark:border-orange-700',
+    hoverBorder: 'hover:border-orange-400 dark:hover:border-orange-500',
+    accentColor: 'text-orange-700 dark:text-orange-400',
+    badgeColor: 'bg-orange-100 text-orange-800 border-orange-200 dark:bg-orange-900/30 dark:text-orange-300 dark:border-orange-700',
+    shadow: 'shadow-md',
+    hoverShadow: 'hover:shadow-lg'
+  },
+  special: {
+    gradient: 'from-pink-600 via-purple-600 to-blue-600',
+    borderColor: 'border-transparent',
+    hoverBorder: 'hover:border-transparent',
+    accentColor: 'text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600',
+    badgeColor: 'bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 text-purple-800 border-purple-200 dark:from-pink-900/30 dark:via-purple-900/30 dark:to-blue-900/30 dark:text-purple-300 dark:border-purple-700',
+    shadow: 'shadow-lg',
+    hoverShadow: 'hover:shadow-xl'
   },
   default: {
     gradient: 'from-gray-600 to-gray-800',
-    borderColor: 'border-gray-200',
-    hoverBorder: 'hover:border-gray-400',
-    accentColor: 'text-gray-700',
-    badgeColor: 'bg-gray-100 text-gray-800 border-gray-200',
-    shadow: 'shadow-gray-100',
-    hoverShadow: 'hover:shadow-gray-200'
+    borderColor: 'border-border',
+    hoverBorder: 'hover:border-border/80',
+    accentColor: 'text-foreground',
+    badgeColor: 'bg-secondary text-secondary-foreground border-border',
+    shadow: 'shadow-md',
+    hoverShadow: 'hover:shadow-lg'
   }
 };
 
@@ -97,23 +104,31 @@ const Certifications = () => {
   const [visibleCerts, setVisibleCerts] = useState(6);
   const [activeTab, setActiveTab] = useState<'all' | 'certifications' | 'courses'>('all');
   
-  // MODIFICAR SEUS DADOS PARA INCLUIR UM CARD ESPECIAL
   const certifications: Certification[] = [
     {
       id: 1,
-      name: "AWS Certified Solutions Architect – Professional", 
-      issuer: "Amazon Web Services",
-      issuerLogo: google, // USE SEU LOGO
-      date: "2023-04-15",
+      name: "AWS Certified Solutions Architect – Professional",
+      issuer: "Google Cloud",
+      issuerLogo: google,
+      date: "2024-01-15",
       credentialUrl: "#",
-      skills: ["Cloud Architecture", "AWS Services", "Security", "DevOps"],
+      skills: ["Cloud Architecture", "AWS Services", "Security", "Advanced"],
       type: "certification",
-      theme: "aws",
-      isSpecial: true, 
-      description: "Certificação profissional de nível avançado que valida expertise técnica em design e deployment de sistemas distribuídos escaláveis na AWS." // ADICIONAR ESTA LINHA
+      theme: "special"
     },
     {
       id: 2,
+      name: "AWS Certified Solutions Architect – Associate",
+      issuer: "Amazon Web Services",
+      issuerLogo: dio,
+      date: "2023-04-15",
+      credentialUrl: "#",
+      skills: ["Cloud Architecture", "AWS Services", "Security"],
+      type: "certification",
+      theme: "azure"
+    },
+    {
+      id: 3,
       name: "Microsoft Azure Fundamentals",
       issuer: "Microsoft",
       issuerLogo: azure,
@@ -121,10 +136,10 @@ const Certifications = () => {
       credentialUrl: "#",
       skills: ["Azure", "Cloud Computing", "Infrastructure"],
       type: "certification",
-      theme: "azure"
+      theme: "ibm"
     },
     {
-      id: 3,
+      id: 4,
       name: "Google Cloud Professional Cloud Developer",
       issuer: "Google Cloud",
       issuerLogo: google,
@@ -135,7 +150,18 @@ const Certifications = () => {
       theme: "google"
     },
     {
-      id: 4,
+      id: 5,
+      name: "IBM Watson AI Expert Certification",
+      issuer: "IBM",
+      issuerLogo: ibm,
+      date: "2023-08-15",
+      credentialUrl: "#",
+      skills: ["AI", "Machine Learning", "Watson", "Expert Level"],
+      type: "certification",
+      theme: "santander"
+    },
+    {
+      id: 6,
       name: "IBM Watson AI Certification",
       issuer: "IBM",
       issuerLogo: ibm,
@@ -146,7 +172,7 @@ const Certifications = () => {
       theme: "ibm"
     },
     {
-      id: 5,
+      id: 7,
       name: "Bootcamp Full Stack Developer",
       issuer: "Digital Innovation One",
       issuerLogo: dio,
@@ -157,7 +183,7 @@ const Certifications = () => {
       theme: "dio"
     },
     {
-      id: 6,
+      id: 8,
       name: "Santander Coders - Frontend",
       issuer: "Santander",
       issuerLogo: santander,
@@ -180,7 +206,7 @@ const Certifications = () => {
   };
 
   const loadMoreCertifications = () => {
-    setVisibleCerts(prev => Math.min(prev + 6, regularCertifications.length)); // MUDANÇA AQUI
+    setVisibleCerts(prev => Math.min(prev + 6, filteredCertifications.length));
   };
 
   const filteredCertifications = certifications.filter(cert => {
@@ -188,11 +214,146 @@ const Certifications = () => {
     return activeTab === 'certifications' ? cert.type === 'certification' : cert.type === 'course';
   });
 
-  // ADICIONAR ESTAS LINHAS
-  const specialCertification = filteredCertifications.find(cert => cert.isSpecial);
-  const regularCertifications = filteredCertifications.filter(cert => !cert.isSpecial);
-
   const getThemeStyles = (theme: string) => themes[theme as keyof typeof themes];
+
+  const renderCertificationCard = (cert: Certification) => {
+    const themeStyles = getThemeStyles(cert.theme);
+    
+    const cardContent = (
+      <>
+        {/* Gradient overlay */}
+        <div className={`
+          absolute top-0 left-0 right-0 h-1 
+          bg-gradient-to-r ${themeStyles.gradient}
+          opacity-80 group-hover:opacity-100 transition-opacity duration-300
+        `} />
+        
+        <CardHeader className="pb-3 relative">
+          <div className="flex justify-between items-start">
+            <div className="flex-1 pr-4">
+              <CardTitle className="text-lg leading-tight group-hover:text-foreground transition-colors duration-200">
+                {cert.name}
+                {cert.theme === 'special' && (
+                  <Star className="inline-block h-4 w-4 ml-2 text-yellow-500 fill-yellow-500" />
+                )}
+              </CardTitle>
+              <div className="flex items-center mt-2">
+                {cert.type === 'certification' ? (
+                  <Award className={`h-4 w-4 mr-2 ${cert.theme === 'special' ? 'text-purple-600' : themeStyles.accentColor}`} />
+                ) : (
+                  <BookOpen className={`h-4 w-4 mr-2 ${cert.theme === 'special' ? 'text-purple-600' : themeStyles.accentColor}`} />
+                )}
+                <span className="text-sm text-muted-foreground capitalize">
+                  {cert.type === 'certification' ? 'Certificação' : 'Curso'}
+                  {cert.theme === 'special' && ' Especial'}
+                </span>
+              </div>
+            </div>
+            
+            <div className="flex-shrink-0 h-12 w-20 flex items-center justify-center overflow-hidden rounded-lg bg-white/80 backdrop-blur-sm shadow-sm group-hover:shadow-md transition-all duration-200">
+              <img 
+                src={cert.issuerLogo} 
+                alt={`${cert.issuer} logo`}
+                className="max-h-full max-w-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = `https://via.placeholder.com/100x50?text=${cert.issuer.charAt(0)}`;
+                }}
+              />
+            </div>
+          </div>
+        </CardHeader>
+        
+        <CardContent className="pb-4">
+          <div className="space-y-3">
+            <div className="flex items-center text-sm">
+              <Award className="h-4 w-4 mr-2 text-muted-foreground" />
+              <span className={`font-medium ${themeStyles.accentColor}`}>
+                {cert.issuer}
+              </span>
+            </div>
+            
+            <div className="flex items-center text-sm">
+              <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
+              <span className="text-muted-foreground">
+                {formatDate(cert.date)}
+              </span>
+            </div>
+          </div>
+          
+          <div className="flex flex-wrap gap-2 mt-4">
+            {cert.skills.map((skill, index) => (
+              <Badge 
+                key={index} 
+                variant="outline"
+                className={`
+                  ${themeStyles.badgeColor} border transition-all duration-200
+                  hover:scale-105 text-xs
+                `}
+              >
+                {skill}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+        
+        <CardFooter className="pt-0">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className={`
+              w-full group-hover:bg-white/50 transition-all duration-200
+              ${cert.theme === 'special' 
+                ? 'text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 hover:bg-gradient-to-r hover:from-pink-600 hover:via-purple-600 hover:to-blue-600' 
+                : `${themeStyles.accentColor} hover:${themeStyles.accentColor}`
+              }
+            `}
+            asChild
+          >
+            <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Ver Credencial
+            </a>
+          </Button>
+        </CardFooter>
+        
+        {/* Hover effect overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      </>
+    );
+
+    if (cert.theme === 'special') {
+      return (
+        <BackgroundGradient 
+          key={cert.id}
+          className="p-0 overflow-hidden"
+          containerClassName="transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1"
+        >
+          <Card className={`
+            group relative overflow-hidden transition-all duration-300 ease-out
+            bg-card border-0 ${themeStyles.shadow} ${themeStyles.hoverShadow}
+            cursor-pointer h-full
+          `}>
+            {cardContent}
+          </Card>
+        </BackgroundGradient>
+      );
+    }
+
+    return (
+      <Card 
+        key={cert.id} 
+        className={`
+          group relative overflow-hidden transition-all duration-300 ease-out
+          bg-card border-2 ${themeStyles.borderColor} ${themeStyles.hoverBorder}
+          ${themeStyles.shadow} ${themeStyles.hoverShadow}
+          hover:scale-[1.02] hover:-translate-y-1
+          cursor-pointer
+        `}
+      >
+        {cardContent}
+      </Card>
+    );
+  };
 
   return (
     <section id="certifications" className="py-20">
@@ -232,131 +393,14 @@ const Certifications = () => {
             ))}
           </div>
         </div>
-
-        {/* ADICIONAR ESTA SEÇÃO PARA O CARD ESPECIAL */}
-        {specialCertification && (
-          <div className="mb-12 flex justify-center">
-            <SpecialCertificationCard 
-              cert={specialCertification} 
-              formatDate={formatDate}
-            />
-          </div>
-        )}
         
-        {/* MODIFICAR ESTA LINHA */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {regularCertifications.slice(0, visibleCerts).map((cert) => {
-            const themeStyles = getThemeStyles(cert.theme);
-            
-            return (
-              <Card 
-                key={cert.id} 
-                className={`
-                  group relative overflow-hidden transition-all duration-300 ease-out
-                  bg-gradient-to-br ${themeStyles.bgGradient}
-                  border-2 ${themeStyles.borderColor} ${themeStyles.hoverBorder}
-                  shadow-lg ${themeStyles.shadow} ${themeStyles.hoverShadow}
-                  hover:scale-[1.02] hover:-translate-y-1
-                  cursor-pointer
-                `}
-              >
-                {/* Gradient overlay */}
-                <div className={`
-                  absolute top-0 left-0 right-0 h-1 
-                  bg-gradient-to-r ${themeStyles.gradient}
-                  opacity-80 group-hover:opacity-100 transition-opacity duration-300
-                `} />
-                
-                <CardHeader className="pb-3 relative">
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1 pr-4">
-                      <CardTitle className="text-lg leading-tight group-hover:text-foreground transition-colors duration-200">
-                        {cert.name}
-                      </CardTitle>
-                      <div className="flex items-center mt-2">
-                        {cert.type === 'certification' ? (
-                          <Award className={`h-4 w-4 mr-2 ${themeStyles.accentColor}`} />
-                        ) : (
-                          <BookOpen className={`h-4 w-4 mr-2 ${themeStyles.accentColor}`} />
-                        )}
-                        <span className="text-sm text-muted-foreground capitalize">
-                          {cert.type === 'certification' ? 'Certificação' : 'Curso'}
-                        </span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex-shrink-0 h-12 w-20 flex items-center justify-center overflow-hidden rounded-lg bg-white/80 backdrop-blur-sm shadow-sm group-hover:shadow-md transition-all duration-200">
-                      <img 
-                        src={cert.issuerLogo} 
-                        alt={`${cert.issuer} logo`}
-                        className="max-h-full max-w-full object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = `https://via.placeholder.com/100x50?text=${cert.issuer.charAt(0)}`;
-                        }}
-                      />
-                    </div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent className="pb-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center text-sm">
-                      <Award className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className={`font-medium ${themeStyles.accentColor}`}>
-                        {cert.issuer}
-                      </span>
-                    </div>
-                    
-                    <div className="flex items-center text-sm">
-                      <Calendar className="h-4 w-4 mr-2 text-muted-foreground" />
-                      <span className="text-muted-foreground">
-                        {formatDate(cert.date)}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {cert.skills.map((skill, index) => (
-                      <Badge 
-                        key={index} 
-                        variant="outline"
-                        className={`
-                          ${themeStyles.badgeColor} border transition-all duration-200
-                          hover:scale-105 text-xs
-                        `}
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-                
-                <CardFooter className="pt-0">
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className={`
-                      w-full group-hover:bg-white/50 transition-all duration-200
-                      ${themeStyles.accentColor} hover:${themeStyles.accentColor}
-                    `}
-                    asChild
-                  >
-                    <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver Credencial
-                    </a>
-                  </Button>
-                </CardFooter>
-                
-                {/* Hover effect overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-              </Card>
-            );
-          })}
+          {filteredCertifications.slice(0, visibleCerts).map((cert) => 
+            renderCertificationCard(cert)
+          )}
         </div>
         
-        {/* MODIFICAR ESTA CONDIÇÃO */}
-        {visibleCerts < regularCertifications.length && (
+        {visibleCerts < filteredCertifications.length && (
           <div className="mt-12 text-center">
             <Button 
               onClick={loadMoreCertifications} 
