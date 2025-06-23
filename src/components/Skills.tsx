@@ -52,16 +52,16 @@ const Skills = () => {
         <h2 className="section-title mb-12">{t("skills.title")}</h2>
 
         <div className="flex flex-col lg:flex-row">
-          {/* Lado esquerdo - IconCloud */}
+          {/* Lado esquerdo */}
           <div className="flex-1">
             <div className="h-full bg-card/50 dark:bg-gray-800/50 p-4 border-t border-l border-b border-border/50 lg:border-r-0 rounded-lg lg:rounded-r-none">
-              <div className="max-w-lg py-4 text-xl font-semibold tracking-tight md:text-3xl">
-                Conhecimento nas principais
-                <PointerHighlight>
-                  <span>Tecnologias</span>
-                </PointerHighlight>
-                do mercado
-              </div>
+           <div className="max-w-lg py-4 text-xl font-semibold tracking-tight md:text-3xl">
+      {t("technologiesIntro.part1")}
+      <PointerHighlight>
+        <span>{t("technologiesIntro.highlight")}</span>
+      </PointerHighlight>
+      {t("technologiesIntro.part2")}
+    </div>
               <div className="flex items-center justify-center min-h-[250px] sm:min-h-[300px]">
                 <IconCloud
                   images={[

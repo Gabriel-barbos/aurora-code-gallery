@@ -11,6 +11,8 @@ import {
   DropdownMenuTrigger
 } from './ui/dropdown-menu';
 
+import logo from "../assets/logoG.png"
+
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
   const { locale, setLocale, t } = useLanguage();
@@ -31,7 +33,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navigation items
   const navItems = [
     { label: t('nav.home'), href: '#home' },
     { label: t('nav.about'), href: '#about' },
@@ -49,10 +50,12 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo/Brand */}
-        <a href="#home" className="text-2xl font-bold text-primary">Portfolio</a>
-        
-        {/* Desktop Navigation */}
+        <a href="#home" className="flex items-center space-x-2 text-2xl font-bold text-primary">
+  <img src={logo} alt="Logo" className="h-[1.5rem] w-[1.5rem] object-contain" />
+  <span>Portfolio</span>
+</a>
+
+        {/* Desktop*/}
         <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item, index) => (
             <a 
@@ -108,7 +111,7 @@ const Header = () => {
         </div>
       </div>
       
-      {/* Mobile Navigation */}
+      {/* Mobile*/}
       {isMenuOpen && (
         <div className="md:hidden bg-background dark:bg-gray-900 shadow-lg">
           <div className="container mx-auto px-4 py-2">
