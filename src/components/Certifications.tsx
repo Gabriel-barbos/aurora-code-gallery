@@ -11,6 +11,7 @@ import ibm from "../assets/icons/ibm.png"
 import azure from "../assets/icons/azure.png"
 import santander from "../assets/icons/santander.png"
 import dio from "../assets/icons/dio2.png"
+import bradesco from "../assets/icons/bradesco.png"
 
 interface Certification {
   id: number;
@@ -107,62 +108,62 @@ const Certifications = () => {
   const certifications: Certification[] = [
     {
       id: 1,
-      name: "AWS Certified Solutions Architect – Professional",
+      name: "Google Cloud Computing Foundations Certificate",
       issuer: "Google Cloud",
       issuerLogo: google,
-      date: "2024-01-15",
-      credentialUrl: "#",
-      skills: ["Cloud Architecture", "AWS Services", "Security", "Advanced"],
+      date: "2024-05-26",
+      credentialUrl: "https://www.credly.com/badges/adef3268-9dfe-496f-918d-26e46640255a/public_url",
+      skills: ["Cloud Architecture", "Virtual Machine", "Ai", "Cloud Storage", "Cloud Network"],
       type: "certification",
       theme: "special"
     },
     {
       id: 2,
-      name: "AWS Certified Solutions Architect – Associate",
-      issuer: "Amazon Web Services",
-      issuerLogo: dio,
-      date: "2023-04-15",
+      name: "Introdução À Gestão De Projetos",
+      issuer: "Bradesco",
+      issuerLogo: bradesco,
+      date: "2024-02-20",
       credentialUrl: "#",
-      skills: ["Cloud Architecture", "AWS Services", "Security"],
-      type: "certification",
-      theme: "azure"
-    },
-    {
-      id: 3,
-      name: "Microsoft Azure Fundamentals",
-      issuer: "Microsoft",
-      issuerLogo: azure,
-      date: "2023-02-10",
-      credentialUrl: "#",
-      skills: ["Azure", "Cloud Computing", "Infrastructure"],
-      type: "certification",
-      theme: "ibm"
-    },
-    {
-      id: 4,
-      name: "Google Cloud Professional Cloud Developer",
-      issuer: "Google Cloud",
-      issuerLogo: google,
-      date: "2022-11-22",
-      credentialUrl: "#",
-      skills: ["GCP", "Cloud Functions", "App Engine"],
-      type: "certification",
-      theme: "google"
-    },
-    {
-      id: 5,
-      name: "IBM Watson AI Expert Certification",
-      issuer: "IBM",
-      issuerLogo: ibm,
-      date: "2023-08-15",
-      credentialUrl: "#",
-      skills: ["AI", "Machine Learning", "Watson", "Expert Level"],
+      skills: ["Projects", "Management", "Software development"],
       type: "certification",
       theme: "santander"
     },
     {
+      id: 3,
+      name: "DIO: Conceitos Fundamentais de IA",
+      issuer: "Digital Innovation One",
+      issuerLogo: dio,
+      date: "2025-02-,09",
+      credentialUrl: "#",
+      skills: ["Machine Learning", "AI", "prompt engineering"],
+      type: "certification",
+      theme: "dio"
+    },
+    {
+      id: 4,
+      name: "Microsoft Azure: Deploy a website to Azure with Azure App Service",
+      issuer: "Microsoft",
+      issuerLogo: azure,
+      date: "2025-03-26",
+      credentialUrl: "https://learn.microsoft.com/api/achievements/share/en-us/GabrielBarbosa-4747/QSPLB63E?sharingId=F1C330B23F9BEFC9",
+      skills: ["ASP.NET", "Cloud Functions", "App Engine", "C#"],
+      type: "course",
+      theme: "azure"
+    },
+    {
+      id: 5,
+      name: "Google Cloud Computing Foundations: Networking & Security in Google Cloud",
+      issuer: "Google Cloud",
+      issuerLogo: google,
+      date: "2025-05-26",
+      credentialUrl: "https://www.cloudskillsboost.google/public_profiles/e6218dc7-e424-4687-a921-181ddfb57c80/badges/15805176",
+      skills: ["AI", "Machine Learning", "Watson", "Expert Level"],
+      type: "course",
+      theme: "google"
+    },
+    {
       id: 6,
-      name: "IBM Watson AI Certification",
+      name: "IBM Cloud Fundations",
       issuer: "IBM",
       issuerLogo: ibm,
       date: "2022-08-15",
@@ -193,6 +194,28 @@ const Certifications = () => {
       type: "course",
       theme: "santander"
     }
+    ,{
+      id: 9,
+      name: "Microsoft Azure: Build web apps with ASP.NET Core for beginners",
+      issuer: "Microsoft",
+      issuerLogo: azure,
+      date: "2025-03-19",
+      credentialUrl: "#",
+      skills: ["ASP.NET", "Cloud Functions", "App Engine", "C#"],
+      type: "course",
+      theme: "azure"
+    },
+    {
+      id: 10,
+      name: "Microsoft Azure Fundamentals: Describe Azure architecture and services",
+      issuer: "Microsoft",
+      issuerLogo: azure,
+      date: "2025-03-12",
+      credentialUrl: "https://learn.microsoft.com/en-us/users/gabrielbarbosa-4747/achievements/wzhuy9xn",
+      skills: ["Azure", "Cloud Computing", "Infrastructure"],
+      type: "certification",
+      theme: "azure"
+    },
   ];
 
   // Format date based on locale
