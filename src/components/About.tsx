@@ -38,7 +38,7 @@ const About = () => {
                 <div className="flex flex-wrap gap-6">
                   {/* GitHub Button */}
                   <a 
-                    href="https://github.com/username" 
+                    href="https://github.com/Gabriel-barbos" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="group relative overflow-hidden bg-gradient-to-r from-gray-900 to-gray-700 hover:from-gray-800 hover:to-gray-600 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out flex items-center gap-3 min-w-[160px]"
@@ -51,7 +51,7 @@ const About = () => {
                   
                   {/* LinkedIn Button */}
                   <a 
-                    href="https://linkedin.com/in/username" 
+                    href="https://www.linkedin.com/in/gabriel-barbosa-da-silva-35bb19256/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-out flex items-center gap-3 min-w-[160px]"
