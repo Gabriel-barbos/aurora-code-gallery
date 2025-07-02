@@ -9,8 +9,9 @@ import jsBlue from "../assets/icons/JSBlue.png";
 import mongoBlue from "../assets/icons/mongoBlue.png";
 import nodeBlue from "../assets/icons/nodeBlue.png";
 import ReactBlue from "../assets/icons/reactBlue.png";
-import impermaq from "../assets/projects/impermaq.png";
-import vendas from "../assets/projects/sale.png";
+import impermaq from "../assets/projects/impermaq (2).png";
+import vendas from "../assets/projects/vendas.png";
+import campusface from "../assets/projects/campusface.png";
 
 interface Project {
   id: number;
@@ -64,6 +65,28 @@ const Projects = () => {
         'Abertura e fechamento de Caixa',
       ],
       image: vendas,
+      previewUrl: 'https://sistema-de-vendas2.vercel.app/',
+      repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
+      technologies: [
+        { name: 'React', icon: ReactBlue },
+        { name: 'JavaScript', icon: jsBlue },
+        { name: 'Node.js', icon: nodeBlue },
+        { name: 'MongoDB', icon: mongoBlue },
+      ],
+    },
+
+    {
+      id:3,
+      title: 'CampusFace',
+      description: 'Sistema mobile para controle de acesso com reconhecimento facial e QR code',
+      features: [
+        'Liberação de acesso com reconhecimento facial',
+        'Sistema 100% mobile',
+        'Cadastro de usuarios pelo celular',
+        'Histórico de entrada de usuarios',
+        '',
+      ],
+      image: campusface,
       previewUrl: 'https://sistema-de-vendas2.vercel.app/',
       repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
       technologies: [
