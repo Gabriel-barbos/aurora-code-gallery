@@ -4,102 +4,14 @@ import { Card, CardContent, CardHeader } from './ui/card';
 import { ExternalLink } from 'lucide-react';
 import { Button } from './ui/moving-border';
 import GitHubButton from './GithubButton';
-
-import jsBlue from "../assets/icons/JSBlue.png";
-import mongoBlue from "../assets/icons/mongoBlue.png";
-import nodeBlue from "../assets/icons/nodeBlue.png";
-import ReactBlue from "../assets/icons/reactBlue.png";
-import impermaq from "../assets/projects/impermaq (2).png";
-import vendas from "../assets/projects/vendas.png";
-import campusface from "../assets/projects/campusface.png";
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  features: string[];
-  image: string;
-  previewUrl: string;
-  repoUrl: string;
-  technologies: {
-    name: string;
-    icon: string;
-  }[];
-}
+import { projectsData } from '../utils/ProjectsData';
 
 const Projects = () => {
   const { t } = useLanguage();
   const [visibleProjects, setVisibleProjects] = useState(3);
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: 'Impermaq Máquinas',
-      description: 'Site para vitrine de produtos e serviços e vendas de maquinas industriais',
-      features: [
-        'Cadastro de produtos',
-        'Controle de acesso para administradores',
-        'Responsivo',
-        'Integração com Whatsapp para orçamentos',
-        'Admin dashboard',
-      ],
-      image: impermaq,
-      previewUrl: 'https://www.impermaq.com.br',
-      repoUrl: 'https://github.com/Gabriel-barbos/impermaq-V2',
-      technologies: [
-        { name: 'React', icon: ReactBlue },
-        { name: 'Node.js', icon: nodeBlue },
-        { name: 'MongoDB', icon: mongoBlue },
-        { name: 'JavaScript', icon: jsBlue },
-      ],
-    },
-    {
-      id: 2,
-      title: 'Sistema de Vendas',
-      description: 'Sistema completo de frente de caixa com gestão de produtos, estoque e relatórios',
-      features: [
-        'Sistema de estoque e venda',
-        'Dashboard de relatórios e gráficos',
-        'Cadastro de Produtos',
-        'Operadores e Administradores',
-        'Abertura e fechamento de Caixa',
-      ],
-      image: vendas,
-      previewUrl: 'https://sistema-de-vendas2.vercel.app/',
-      repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
-      technologies: [
-        { name: 'React', icon: ReactBlue },
-        { name: 'JavaScript', icon: jsBlue },
-        { name: 'Node.js', icon: nodeBlue },
-        { name: 'MongoDB', icon: mongoBlue },
-      ],
-    },
-
-    {
-      id:3,
-      title: 'CampusFace',
-      description: 'Sistema mobile para controle de acesso com reconhecimento facial e QR code',
-      features: [
-        'Liberação de acesso com reconhecimento facial',
-        'Sistema 100% mobile',
-        'Cadastro de usuarios pelo celular',
-        'Histórico de entrada de usuarios',
-        '',
-      ],
-      image: campusface,
-      previewUrl: 'https://sistema-de-vendas2.vercel.app/',
-      repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
-      technologies: [
-        { name: 'React', icon: ReactBlue },
-        { name: 'JavaScript', icon: jsBlue },
-        { name: 'Node.js', icon: nodeBlue },
-        { name: 'MongoDB', icon: mongoBlue },
-      ],
-    },
-  ];
-
   const loadMore = () => {
-    setVisibleProjects(prev => Math.min(prev + 3, projects.length));
+    setVisibleProjects(prev => Math.min(prev + 3, projectsData.length));
   };
 
   return (
@@ -108,7 +20,7 @@ const Projects = () => {
         <h2 className="section-title">{t('projects.title')}</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-          {projects.slice(0, visibleProjects).map(project => (
+          {projectsData.slice(0, visibleProjects).map(project => (
             <Card
               key={project.id}
               className="group relative max-w-md bg-white/5 backdrop-blur-sm border-2 border-white/10 
@@ -203,7 +115,7 @@ const Projects = () => {
           ))}
         </div>
 
-        {visibleProjects < projects.length && (
+        {visibleProjects < projectsData.length && (
           <div className="mt-12 text-center">
             <button
               onClick={loadMore}
