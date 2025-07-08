@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Card, CardContent, CardHeader } from './ui/card';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ChevronDown, Sparkles } from 'lucide-react';
 import { Button } from './ui/moving-border';
 import GitHubButton from './GithubButton';
-import { projectsData } from '../utils/ProjectsData';
+import { getTranslatedProjects } from '../utils/ProjectsData';
 
 const Projects = () => {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage(); // Certifique-se de que o locale está disponível no contexto
   const [visibleProjects, setVisibleProjects] = useState(3);
+
+  // Buscar projetos traduzidos baseado no locale atual
+  const projectsData = getTranslatedProjects(locale);
 
   const loadMore = () => {
     setVisibleProjects(prev => Math.min(prev + 3, projectsData.length));
@@ -58,7 +61,7 @@ const Projects = () => {
                     {project.features.map((feature, index) => (
                       <li key={index} className="text-sm text-muted-foreground flex items-start gap-2 
                                                  group-hover:text-muted-foreground/90 transition-colors duration-300">
-                        <div className="h-1.5 w-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0 
+                        <div className="h-1.5 w-1.5 bg-blue-500 rounded-full mt-2 flex-shrizer-0 
                                         group-hover:bg-blue-400 transition-all duration-300" />
                         <span className="group-hover:translate-x-0.5 transition-transform duration-300">
                           {feature}
@@ -104,11 +107,11 @@ const Projects = () => {
                       className="flex items-center font-medium text-sm"
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Preview
+                      {t('projects.viewPreview')}
                     </a>
                   </Button>
 
-                  <GitHubButton href={project.repoUrl}>GitHub</GitHubButton>
+                  <GitHubButton href={project.repoUrl}>{t('projects.viewRepository')}</GitHubButton>
                 </div>
               </div>
             </Card>
@@ -119,19 +122,55 @@ const Projects = () => {
           <div className="mt-12 text-center">
             <button
               onClick={loadMore}
-              className="group relative px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 
-                         text-white font-medium rounded-lg overflow-hidden
-                         hover:from-blue-700 hover:to-purple-700 transition-all duration-300
-                         hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105 active:scale-95 
-                         border border-blue-500/30"
+              className="group relative overflow-hidden rounded-xl 
+                         bg-white/5 backdrop-blur-sm 
+                         border-2 border-white/10 
+                         hover:border-blue-500/40 
+                         transition-all duration-500 
+                         hover:shadow-2xl hover:shadow-blue-500/20 
+                         hover:scale-105 hover:-translate-y-1 
+                         active:scale-95 active:translate-y-0
+                         px-8 py-4 min-w-[200px]"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent 
-                              -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              <span className="relative flex items-center gap-2">
-                Carregar Mais Projetos
-                <div className="w-2 h-2 bg-white rounded-full opacity-60 group-hover:opacity-100 
-                                group-hover:animate-bounce transition-all duration-300" />
-              </span>
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 -translate-x-full 
+                              bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                              group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-xl 
+                              bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              {/* Particles effect */}
+              <div className="absolute inset-0 overflow-hidden rounded-xl">
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-blue-400/60 rounded-full 
+                               opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300" />
+                <div className="absolute top-1/2 -left-1 w-1 h-1 bg-purple-400/60 rounded-full 
+                               opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300 delay-100" />
+                <div className="absolute -bottom-1 right-1/3 w-1.5 h-1.5 bg-blue-300/60 rounded-full 
+                               opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-300 delay-200" />
+              </div>
+              
+              {/* Content */}
+              <div className="relative flex items-center justify-center gap-3 
+                              text-foreground group-hover:text-blue-400 
+                              transition-colors duration-300">
+                <Sparkles className="w-5 h-5 opacity-0 group-hover:opacity-100 
+                                   group-hover:animate-pulse transition-all duration-300" />
+                
+                <span className="font-medium group-hover:translate-x-0.5 transition-transform duration-300">
+                  {t('projects.loadMore')}
+                </span>
+                
+                <ChevronDown className="w-5 h-5 group-hover:translate-y-0.5 
+                                      group-hover:animate-bounce transition-all duration-300" />
+              </div>
+              
+              {/* Bottom border accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 
+                              bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 
+                              scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             </button>
           </div>
         )}

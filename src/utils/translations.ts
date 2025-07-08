@@ -11,7 +11,6 @@ interface Translations {
 // Translation object structure
 export const translations: Translations = {
   en: {
-
     description: {
       part1: 'Software Development student ',
       part2: 'committed to creating ',
@@ -19,11 +18,12 @@ export const translations: Translations = {
       part3: ' for diverse problems.',
     },
 
-  technologiesIntro: {
-  part1: 'Knowledge in the main ',
-  highlight: 'Technologies',
-  part2: ' on the market',
-},
+    technologiesIntro: {
+      part1: 'Knowledge in the main ',
+      highlight: 'Technologies',
+      part2: ' on the market',
+    },
+
     nav: {
       home: 'Home',
       about: 'About',
@@ -35,34 +35,48 @@ export const translations: Translations = {
       tools: 'Tools',
       contact: 'Contact',
     },
+
     hero: {
       greeting: 'Hello, I\'m',
       role: 'Software Developer',
       cta: 'My projects',
       download: 'Download CV',
     },
+
     about: {
       title: 'About Me',
       connect: 'Connect With Me',
       resume: 'Resume',
     },
+
     skills: {
       title: 'Technologies',
       basic: 'Basic',
       intermediate: 'Intermediate',
       advanced: 'Advanced',
     },
+
     projects: {
       title: 'Projects',
       viewPreview: 'View Preview',
       viewRepository: 'Repository',
       techUsed: 'Technologies Used:',
+      features: 'Features:',
+      loadingProjects: 'Loading projects...',
+      noProjects: 'No projects found.',
+      viewProject: 'View Project',
+      viewCode: 'View Code',
+      liveDemo: 'Live Demo',
+      documentation: 'Documentation',
+      loadMore: 'Load More Projects',
     },
+
     experience: {
       title: 'Work Experience',
       present: 'Present',
       location: 'Location',
     },
+
     education: {
       title: 'Education & Language',
       degree: 'Degree',
@@ -70,14 +84,17 @@ export const translations: Translations = {
       period: 'Period',
       languages: 'Languages',
     },
+
     certifications: {
       title: 'Courses & Certifications',
       issued: 'Issued by:',
       date: 'Date:',
     },
+
     tools: {
       title: 'Tools & Software',
     },
+
     contact: {
       title: 'Contact Me',
       name: 'Name',
@@ -92,8 +109,8 @@ export const translations: Translations = {
       messageRequired: 'Message is required',
     },
   },
-  pt: {
 
+  pt: {
     description: {
       part1: 'Estudante de Desenvolvimento de Software Multiplataforma ',
       part2: 'empenhado em criar ',
@@ -101,11 +118,11 @@ export const translations: Translations = {
       part3: ' para problemas diversos.',
     },
 
-technologiesIntro: {
-  part1: 'Conhecimento nas principais ',
-  highlight: 'Tecnologias',
-  part2: ' do mercado',
-},
+    technologiesIntro: {
+      part1: 'Conhecimento nas principais ',
+      highlight: 'Tecnologias',
+      part2: ' do mercado',
+    },
 
     nav: {
       home: 'Início',
@@ -118,34 +135,49 @@ technologiesIntro: {
       tools: 'Ferramentas',
       contact: 'Contato',
     },
+
     hero: {
       greeting: 'Olá, eu sou',
       role: 'Desenvolvedor de Software',
       cta: 'Meus projetos',
       download: 'Baixar Currículo',
     },
+
     about: {
       title: 'Sobre Mim',
       connect: 'Conecte-se Comigo',
       resume: 'Currículo',
     },
+
     skills: {
       title: 'Tecnologias',
       basic: 'Básico',
       intermediate: 'Intermediário',
       advanced: 'Avançado',
     },
+
+    
+
     projects: {
       title: 'Projetos',
       viewPreview: 'Ver Prévia',
       viewRepository: 'Repositório',
       techUsed: 'Tecnologias Utilizadas:',
-    },
+      features: 'Funcionalidades:',
+      loadingProjects: 'Carregando projetos...',
+      noProjects: 'Nenhum projeto encontrado.',
+      viewProject: 'Ver Projeto',
+      viewCode: 'Ver Código',
+      liveDemo: 'Demonstração',
+      documentation: 'Documentação',
+      loadMore: 'Carregar Mais Projetos',    },
+
     experience: {
       title: 'Experiência Profissional',
       present: 'Presente',
       location: 'Local',
     },
+
     education: {
       title: 'Formação Acadêmica & Idiomas',
       degree: 'Graduação',
@@ -153,14 +185,17 @@ technologiesIntro: {
       period: 'Período',
       languages: 'Idiomas',
     },
+
     certifications: {
       title: 'Cursos & Certificados',
       issued: 'Emitido por:',
       date: 'Data:',
     },
+
     tools: {
       title: 'Ferramentas & Software',
     },
+
     contact: {
       title: 'Contate-me',
       name: 'Nome',

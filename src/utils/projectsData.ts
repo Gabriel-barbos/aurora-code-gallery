@@ -22,6 +22,9 @@ import devuhub from "../assets/projects/devhub.png"
 import michele from "../assets/projects/michele-cortinass.png"
 import tourlis from "../assets/projects/tourlis.png"
 import miniprojeto from "../assets/projects/miniprojeto.png"
+
+export type Locale = 'en' | 'pt';
+
 export interface Project {
   id: number;
   title: string;
@@ -36,18 +39,212 @@ export interface Project {
   }[];
 }
 
-export const projectsData: Project[] = [
+interface ProjectTranslations {
+  [locale: string]: {
+    [projectId: number]: {
+      title: string;
+      description: string;
+      features: string[];
+    };
+  };
+}
+
+export const projectTranslations: ProjectTranslations = {
+  pt: {
+    1: {
+      title: 'Impermaq Máquinas',
+      description: 'Site para vitrine de produtos e serviços e vendas de maquinas industriais',
+      features: [
+        'Cadastro de produtos',
+        'Controle de acesso para administradores',
+        'Responsivo',
+        'Integração com Whatsapp para orçamentos',
+        'Admin dashboard',
+      ],
+    },
+    2: {
+      title: 'Sistema de Vendas',
+      description: 'Sistema completo de frente de caixa com gestão de produtos, estoque e relatórios',
+      features: [
+        'Sistema de estoque e venda',
+        'Dashboard de relatórios e gráficos',
+        'Cadastro de Produtos',
+        'Operadores e Administradores',
+        'Abertura e fechamento de Caixa',
+      ],
+    },
+    3: {
+      title: 'CampusFace',
+      description: 'Sistema mobile para controle de acesso com reconhecimento facial e QR code',
+      features: [
+        'Liberação de acesso com reconhecimento facial',
+        'Sistema 100% mobile',
+        'Cadastro de usuários pelo celular',
+        'Histórico de entrada de usuários',
+      ],
+    },
+    4: {
+      title: 'FateColeta',
+      description: 'Plataforma web para cadastro de pontos de coleta de reciclagem',
+      features: [
+        'Acessibilidade',
+        'Integração com Firebase',
+        'Troca de Temas e Responsividade',
+        'Interação com Maps',
+      ],
+    },
+    5: {
+      title: 'Devhub',
+      description: 'Rede Social voltada para o público tech',
+      features: [
+        'Lógica de Posts, Comentários e Threads',
+        'Desenvolvido com FastAPI',
+        'Troca de Temas e Responsividade',
+        'Uso de componentes Shadcn',
+        'Banco de dados não relacional',
+      ],
+    },
+    6: {
+      title: 'Nutrihub',
+      description: 'Projeto Colaborativo Internacional para o desenvolvimento de um sistema de nutrição',
+      features: [
+        'Projeto em colaboração com estudantes Colombianos',
+        'Ler código de barras de Alimentos',
+        'Integração com API da tabela nutricional',
+        'Metodologia SCRUM',
+      ],
+    },
+    7: {
+      title: 'Michele Cortinas',
+      description: 'E-commerce para loja de cortinas',
+      features: [
+        'Recuperação de senha via E-mail',
+        'Carrinho de compras',
+        'Visualização de cada produto de acordo com a cor',
+        'Solicitar orçamento',
+      ],
+    },
+    8: {
+      title: 'Tourlis',
+      description: 'Site sobre turismo Sustentável com métricas avançadas',
+      features: [
+        'Integração com PowerBi',
+        'Responsivo',
+        'Quiz Interativo',
+        'Metodologia SCRUM',
+      ],
+    },
+    9: {
+      title: 'React Native HUB',
+      description: 'Projeto desenvolvido para exercitar conceitos do React Native',
+      features: [
+        'Navegação entre telas',
+        'Troca de temas',
+        'Async Storage',
+        'Design responsivo',
+      ],
+    },
+  },
+  en: {
+    1: {
+      title: 'Impermaq Machines',
+      description: 'Website for product and service showcase and industrial machine sales',
+      features: [
+        'Product registration',
+        'Access control for administrators',
+        'Responsive design',
+        'WhatsApp integration for quotes',
+        'Admin dashboard',
+      ],
+    },
+    2: {
+      title: 'Sales System',
+      description: 'Complete point-of-sale system with product management, inventory and reports',
+      features: [
+        'Inventory and sales system',
+        'Reports and charts dashboard',
+        'Product registration',
+        'Operators and Administrators',
+        'Cash register opening and closing',
+      ],
+    },
+    3: {
+      title: 'CampusFace',
+      description: 'Mobile system for access control with facial recognition and QR code',
+      features: [
+        'Access release with facial recognition',
+        '100% mobile system',
+        'User registration via mobile',
+        'User entry history',
+      ],
+    },
+    4: {
+      title: 'FateColeta',
+      description: 'Web platform for registering recycling collection points',
+      features: [
+        'Accessibility',
+        'Firebase integration',
+        'Theme switching and Responsiveness',
+        'Maps interaction',
+      ],
+    },
+    5: {
+      title: 'Devhub',
+      description: 'Social network aimed at the tech audience',
+      features: [
+        'Posts, Comments and Threads logic',
+        'Developed with FastAPI',
+        'Theme switching and Responsiveness',
+        'Use of Shadcn components',
+        'Non-relational database',
+      ],
+    },
+    6: {
+      title: 'Nutrihub',
+      description: 'International Collaborative Project for developing a nutrition system',
+      features: [
+        'Project in collaboration with Colombian students',
+        'Read food barcodes',
+        'Integration with nutritional table API',
+        'SCRUM methodology',
+      ],
+    },
+    7: {
+      title: 'Michele Curtains',
+      description: 'E-commerce for curtain store',
+      features: [
+        'Password recovery via email',
+        'Shopping cart',
+        'Product visualization according to color',
+        'Request quote',
+      ],
+    },
+    8: {
+      title: 'Tourlis',
+      description: 'Sustainable tourism website with advanced metrics',
+      features: [
+        'PowerBI integration',
+        'Responsive design',
+        'Interactive quiz',
+        'SCRUM methodology',
+      ],
+    },
+    9: {
+      title: 'React Native HUB',
+      description: 'Project developed to exercise React Native concepts',
+      features: [
+        'Screen navigation',
+        'Theme switching',
+        'Async Storage',
+        'Responsive design',
+      ],
+    },
+  },
+};
+
+export const projectsBaseData: Omit<Project, 'title' | 'description' | 'features'>[] = [
   {
     id: 1,
-    title: 'Impermaq Máquinas',
-    description: 'Site para vitrine de produtos e serviços e vendas de maquinas industriais',
-    features: [
-      'Cadastro de produtos',
-      'Controle de acesso para administradores',
-      'Responsivo',
-      'Integração com Whatsapp para orçamentos',
-      'Admin dashboard',
-    ],
     image: impermaq,
     previewUrl: 'https://www.impermaq.com.br',
     repoUrl: 'https://github.com/Gabriel-barbos/impermaq-V2',
@@ -60,15 +257,6 @@ export const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: 'Sistema de Vendas',
-    description: 'Sistema completo de frente de caixa com gestão de produtos, estoque e relatórios',
-    features: [
-      'Sistema de estoque e venda',
-      'Dashboard de relatórios e gráficos',
-      'Cadastro de Produtos',
-      'Operadores e Administradores',
-      'Abertura e fechamento de Caixa',
-    ],
     image: vendas,
     previewUrl: 'https://sistema-de-vendas2.vercel.app/',
     repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
@@ -81,15 +269,6 @@ export const projectsData: Project[] = [
   },
   {
     id: 3,
-    title: 'CampusFace',
-    description: 'Sistema mobile para controle de acesso com reconhecimento facial e QR code',
-    features: [
-      'Liberação de acesso com reconhecimento facial',
-      'Sistema 100% mobile',
-      'Cadastro de usuarios pelo celular',
-      'Histórico de entrada de usuarios',
-      
-    ],
     image: campusface,
     previewUrl: 'https://sistema-de-vendas2.vercel.app/',
     repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
@@ -102,15 +281,6 @@ export const projectsData: Project[] = [
   },
   {
     id: 4,
-    title: 'FateColeta',
-    description: 'Plataforma web para cadastro de pontos de coleta de reciclagem',
-    features: [
-      'Acessibilidade',
-      'integração com Firebase',
-      'Troca de Temas e Responsividade',
-      'Interação com Maps',
-      
-    ],
     image: fatecoleta,
     previewUrl: 'https://www.figma.com/deck/TBCbQNAOopJBtAxGYEfZVl/fatecoleta---ux?node-id=1-32&t=L0Owh5S6iMojC1IJ-1',
     repoUrl: 'https://fatecoleta.vercel.app',
@@ -123,15 +293,6 @@ export const projectsData: Project[] = [
   },
   {
     id: 5,
-    title: 'Devhub',
-    description: 'Rede Social voltada para o público tech',
-    features: [
-      'Lógica de Posts, Comentários e Threads',
-      'Desenvolvido com FastAPI',
-      'Troca de Temas e Responsividade',
-      'Uso de componentes Shadcn',
-      'Banco de dados não relacional',
-    ],
     image: devuhub,
     previewUrl: '/public/docs/Devhub.pdf',
     repoUrl: 'https://github.com/Gabriel-barbos/Devhub.git',
@@ -144,15 +305,6 @@ export const projectsData: Project[] = [
   },
   {
     id: 6,
-    title: 'Nutrihub',
-    description: 'Projeto Colaborativo Internacional para o desenvolvimento de um sistema de nutrição',
-    features: [
-      'Projeto em colaboração com estudantes Colombianos',
-      'Ler codigo de barras de Alimentos',
-      'Integração com API da tabela nutricional',
-      'Metodologia SCRUM',
-      
-    ],
     image: nutrihub,
     previewUrl: '/public/docs/NutriHub.pdf',
     repoUrl: 'https://github.com/gabrielmeiradev/nutrihub',
@@ -163,17 +315,8 @@ export const projectsData: Project[] = [
       { name: 'Tailwind CSS', icon: tailwind },
     ],
   },
-    {
+  {
     id: 7,
-    title: 'Michele Cortinas',
-    description: 'E-commerce para loja de cortinas',
-    features: [
-      'Recuperação de senha via E-mail',
-      'Carrinho de compras',
-      'Visualização de cada produto de acordo com a cor',
-      'Solicitar orçamento',
-      
-    ],
     image: michele,
     previewUrl: '/public/docs/MicheleCortinas.pdf',
     repoUrl: 'https://github.com/Gabriel-barbos/Michele-Cortinas',
@@ -184,20 +327,11 @@ export const projectsData: Project[] = [
       { name: 'Node.Js', icon: node },
     ],
   },
-    {
+  {
     id: 8,
-    title: 'Tourlis',
-    description: 'Site sobre turismo Sustentável com métricas avançadas',
-    features: [
-      'Integração com PowerBi',
-      'Responsivo',
-      'Quiz Interativo',
-      'Metodologia SCRUM',
-      
-    ],
     image: tourlis,
     previewUrl: 'https://youtu.be/TsgTKow4El0?si=g6CTXUWCz50tbaaO',
-    repoUrl: 'https://github.com/Gabriel-barbos/Tourlis"',
+    repoUrl: 'https://github.com/Gabriel-barbos/Tourlis',
     technologies: [
       { name: 'HTML', icon: html },
       { name: 'CSS', icon: css },
@@ -205,17 +339,8 @@ export const projectsData: Project[] = [
       { name: 'Power BI', icon: powerbi },
     ],
   },
-    {
+  {
     id: 9,
-    title: 'React Native HUB',
-    description: 'Projeto desenvolvido para exercitar conceitos do React Native',
-    features: [
-      'Navegação entre telas',
-      'Troca de temas',
-      'Asyng Storage',
-      'Design responsivo',
-      
-    ],
     image: miniprojeto,
     previewUrl: 'https://snack.expo.dev/@gabriel.barbosaa/mini-projetos',
     repoUrl: 'https://snack.expo.dev/@gabriel.barbosaa/mini-projetos',
@@ -227,3 +352,32 @@ export const projectsData: Project[] = [
     ],
   },
 ];
+
+// Função para obter projetos traduzidos
+export const getTranslatedProjects = (locale: Locale): Project[] => {
+  return projectsBaseData.map((baseProject) => {
+    const translation = projectTranslations[locale][baseProject.id];
+    return {
+      ...baseProject,
+      title: translation.title,
+      description: translation.description,
+      features: translation.features,
+    };
+  });
+};
+
+// Função para obter um projeto específico traduzido
+export const getTranslatedProject = (projectId: number, locale: Locale): Project | undefined => {
+  const baseProject = projectsBaseData.find(p => p.id === projectId);
+  if (!baseProject) return undefined;
+
+  const translation = projectTranslations[locale][projectId];
+  if (!translation) return undefined;
+
+  return {
+    ...baseProject,
+    title: translation.title,
+    description: translation.description,
+    features: translation.features,
+  };
+};
