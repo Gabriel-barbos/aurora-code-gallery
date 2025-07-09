@@ -12,13 +12,13 @@ import github from '../assets/icons/github2.webp';
 import fastapi from '../assets/icons-globe/fastapi.png';
 import aceternity from "../assets/icons/aceternity.png";
 import antdesign from "../assets/icons/antdesign.svg";
-import autocad from "../assets/icons/autocad2.png";
+import autocad from "../assets/icons/autocad.png";
 import bootstrap from "../assets/icons/bootstrap.png";
 import canva from "../assets/icons/canva.png";
 import excel from "../assets/icons/excel.png";
 import figma from "../assets/icons/figma.png";
 import magicUI from "../assets/icons/magicUI.png";
-import notion from "../assets/icons/notion2.png";
+import notion from "../assets/icons/notion.png";
 import powerpoint from "../assets/icons/powerpoint.png";
 import sketchup from "../assets/icons/sketchup.png";
 import teams from "../assets/icons/teams.png";
@@ -62,6 +62,12 @@ const Tools = () => {
     { name: 'Teams', icon: teams, level: 'Avançado' },
   ];
 
+  const skillLevelMap = {
+    Básico: t('tools.skillLevels.basic'),
+    Intermediário: t('tools.skillLevels.intermediate'),
+    Avançado: t('tools.skillLevels.advanced'),
+  };
+
   return (
     <section id="tools" className="bg-secondary/30 dark:bg-gray-900/50 ">
       <div className="bg-secondary/30 dark:bg-gray-900/50">
@@ -76,21 +82,19 @@ const Tools = () => {
             }}
             className="py-4 text-center text-4xl font-medium tracking-tight text-foreground md:text-6xl"
           >
-            Ferramentas Conhecidas
+            {t('tools.title')}
           </motion.h1>
         </LampContainer>
       </div>
-      
+
       <div className="w-full max-w-[1000px] mx-auto px-4 -mt-12">
         <div className="border border-border/50 rounded-xl p-4 bg-card/60 dark:bg-card/50 backdrop-blur-sm">
-          {/* ALTERAÇÃO 1: Ajustei a grid para ser um pouco mais densa em telas médias e grandes */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
             {tools.map((skill, index) => (
               <div
                 key={index}
                 className="group relative rounded-lg hover:shadow-md transition-shadow"
               >
-                {/* ALTERAÇÃO 2: Reduzi o padding do card de p-6 para p-4 */}
                 <div className="relative p-4 transition-all duration-500 ease-out hover:bg-gradient-to-br hover:from-primary/5 hover:to-primary/10 dark:hover:from-primary/10 dark:hover:to-primary/5 group-hover:scale-105">
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-lg blur-sm animate-pulse"></div>
@@ -98,9 +102,7 @@ const Tools = () => {
 
                   <div className="relative z-10">
                     <div className="flex justify-center mb-4">
-                      {/* MANTIDO: O tamanho do container do ícone continua w-20 h-20 */}
                       <div className="w-20 h-20 rounded-full border border-border/30 dark:border-gray-600/30 bg-background/80 dark:bg-gray-900/80 flex items-center justify-center p-3 group-hover:border-primary/50 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all duration-500 backdrop-blur-sm">
-                        {/* MANTIDO: O tamanho da imagem do ícone continua w-10 h-10 */}
                         <img
                           src={skill.icon}
                           alt={`${skill.name} icon`}
@@ -110,12 +112,11 @@ const Tools = () => {
                     </div>
 
                     <div className="flex flex-col items-center text-center gap-2">
-                      {/* MANTIDO: O tamanho da fonte continua text-sm */}
                       <h3 className="font-medium text-sm text-foreground/90 dark:text-gray-200 group-hover:text-foreground transition-colors duration-300">
                         {skill.name}
                       </h3>
                       <Badge className="border-transparent bg-sky-200 text-sky-900 hover:bg-sky-300 transition-colors dark:bg-sky-800 dark:text-sky-100 dark:hover:bg-sky-700">
-                        {skill.level}
+                        {skillLevelMap[skill.level]}
                       </Badge>
                     </div>
                   </div>

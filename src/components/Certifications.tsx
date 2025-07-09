@@ -6,7 +6,6 @@ import { ExternalLink, Calendar, Award, BookOpen, GraduationCap, Star } from 'lu
 import { Button } from './ui/button';
 import { BackgroundGradient } from './ui/background-gradient';
 
-// Importações dos dados e estilos
 import { certifications, type Certification } from '../utils/certificationData';
 import { getThemeStyles } from '../utils/certificationStyles';
 
@@ -38,12 +37,7 @@ const Certifications = () => {
     
     const cardContent = (
       <>
-        {/* Gradient overlay */}
-        <div className={`
-          absolute top-0 left-0 right-0 h-1 
-          bg-gradient-to-r ${themeStyles.gradient}
-          opacity-80 group-hover:opacity-100 transition-opacity duration-300
-        `} />
+        <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${themeStyles.gradient} opacity-80 group-hover:opacity-100 transition-opacity duration-300`} />
         
         <CardHeader className="pb-3 relative">
           <div className="flex justify-between items-start">
@@ -61,8 +55,11 @@ const Certifications = () => {
                   <BookOpen className={`h-4 w-4 mr-2 ${cert.theme === 'special' ? 'text-purple-600' : themeStyles.accentColor}`} />
                 )}
                 <span className="text-sm text-muted-foreground capitalize">
-                  {cert.type === 'certification' ? 'Certificação' : 'Curso'}
-                  {cert.theme === 'special' && ' Especial'}
+                  {cert.type === 'certification' 
+                    ? t('certifications.badges.certification') 
+                    : t('certifications.badges.course')
+                  }
+                  {cert.theme === 'special' && ` ${t('certifications.badges.special')}`}
                 </span>
               </div>
             </div>
@@ -102,10 +99,7 @@ const Certifications = () => {
               <Badge 
                 key={index} 
                 variant="outline"
-                className={`
-                  ${themeStyles.badgeColor} border transition-all duration-200
-                  hover:scale-105 text-xs font-medium
-                `}
+                className={`${themeStyles.badgeColor} border transition-all duration-200 hover:scale-105 text-xs font-medium`}
               >
                 {skill}
               </Badge>
@@ -117,9 +111,7 @@ const Certifications = () => {
           <Button 
             variant="ghost" 
             size="sm" 
-            className={`
-              w-full group-hover:bg-primary/10 transition-all duration-200 
-              border border-primary/20 hover:border-primary/40 rounded-lg
+            className={`w-full group-hover:bg-primary/10 transition-all duration-200 border border-primary/20 hover:border-primary/40 rounded-lg
               ${cert.theme === 'special' 
                 ? 'text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 hover:bg-gradient-to-r hover:from-pink-600/10 hover:via-purple-600/10 hover:to-blue-600/10' 
                 : `${themeStyles.accentColor} hover:${themeStyles.accentColor}`
@@ -129,12 +121,11 @@ const Certifications = () => {
           >
             <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
               <ExternalLink className="h-4 w-4 mr-2" />
-              <span className="font-medium">Ver Credencial</span>
+              <span className="font-medium">{t('certifications.buttonViewCredential')}</span>
             </a>
           </Button>
         </CardFooter>
         
-        {/* Hover effect overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       </>
     );
@@ -146,11 +137,7 @@ const Certifications = () => {
           className="p-0 overflow-hidden"
           containerClassName="transition-all duration-300 ease-out hover:scale-[1.02] hover:-translate-y-1"
         >
-          <Card className={`
-            group relative overflow-hidden transition-all duration-300 ease-out
-            bg-card border-0 ${themeStyles.shadow} ${themeStyles.hoverShadow}
-            cursor-pointer h-full
-          `}>
+          <Card className={`group relative overflow-hidden transition-all duration-300 ease-out bg-card border-0 ${themeStyles.shadow} ${themeStyles.hoverShadow} cursor-pointer h-full`}>
             {cardContent}
           </Card>
         </BackgroundGradient>
@@ -160,13 +147,7 @@ const Certifications = () => {
     return (
       <Card 
         key={cert.id} 
-        className={`
-          group relative overflow-hidden transition-all duration-300 ease-out
-          bg-card border-2 ${themeStyles.borderColor} ${themeStyles.hoverBorder}
-          ${themeStyles.shadow} ${themeStyles.hoverShadow}
-          hover:scale-[1.02] hover:-translate-y-1
-          cursor-pointer
-        `}
+        className={`group relative overflow-hidden transition-all duration-300 ease-out bg-card border-2 ${themeStyles.borderColor} ${themeStyles.hoverBorder} ${themeStyles.shadow} ${themeStyles.hoverShadow} hover:scale-[1.02] hover:-translate-y-1 cursor-pointer`}
       >
         {cardContent}
       </Card>
@@ -177,19 +158,16 @@ const Certifications = () => {
     <section id="certifications" className="py-20">
       <div className="container-section">
         <div className="text-center mb-12">
-          <h2 className="section-title">Certificações & Cursos</h2>
-          <p className="text-lg text-muted-foreground mt-4">
-            Minha jornada de aprendizado contínuo e conquistas profissionais
-          </p>
+          <h2 className="section-title">{t('certifications.title')}</h2>
+          <p className="text-lg text-muted-foreground mt-4">{t('certifications.description')}</p>
         </div>
 
-        {/* Tabs */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex rounded-lg bg-muted p-1">
             {[
-              { key: 'certifications', label: 'Certificações', icon: Award },
-              { key: 'courses', label: 'Cursos', icon: BookOpen },
-              { key: 'all', label: 'Todos', icon: GraduationCap }
+              { key: 'certifications', label: t('certifications.tabs.certifications'), icon: Award },
+              { key: 'courses', label: t('certifications.tabs.courses'), icon: BookOpen },
+              { key: 'all', label: t('certifications.tabs.all'), icon: GraduationCap }
             ].map(({ key, label, icon: Icon }) => (
               <button
                 key={key}
@@ -197,13 +175,11 @@ const Certifications = () => {
                   setActiveTab(key as any);
                   setVisibleCerts(6);
                 }}
-                className={`
-                  flex items-center px-6 py-2 rounded-md text-sm font-medium transition-all duration-200
-                  ${activeTab === key 
+                className={`flex items-center px-6 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                  activeTab === key 
                     ? 'bg-background text-foreground shadow-sm' 
                     : 'text-muted-foreground hover:text-foreground'
-                  }
-                `}
+                }`}
               >
                 <Icon className="h-4 w-4 mr-2" />
                 {label}
@@ -213,9 +189,7 @@ const Certifications = () => {
         </div>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCertifications.slice(0, visibleCerts).map((cert) => 
-            renderCertificationCard(cert)
-          )}
+          {filteredCertifications.slice(0, visibleCerts).map((cert) => renderCertificationCard(cert))}
         </div>
         
         {visibleCerts < filteredCertifications.length && (
@@ -225,7 +199,7 @@ const Certifications = () => {
               variant="outline"
               className="px-8 py-3 text-base hover:scale-105 transition-transform duration-200"
             >
-              Carregar Mais
+              {t('certifications.loadMore')}
             </Button>
           </div>
         )}
@@ -234,7 +208,7 @@ const Certifications = () => {
           <div className="text-center py-12">
             <div className="text-muted-foreground">
               <GraduationCap className="h-12 w-12 mx-auto mb-4 opacity-50" />
-              <p className="text-lg">Nenhum item encontrado</p>
+              <p className="text-lg">{t('certifications.noItemsFound')}</p>
             </div>
           </div>
         )}

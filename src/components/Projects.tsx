@@ -4,13 +4,12 @@ import { Card, CardContent, CardHeader } from './ui/card';
 import { ExternalLink, ChevronDown, Sparkles } from 'lucide-react';
 import { Button } from './ui/moving-border';
 import GitHubButton from './GithubButton';
-import { getTranslatedProjects } from '../utils/ProjectsData';
+import { getTranslatedProjects } from '../utils/projectsData';
 
 const Projects = () => {
-  const { t, locale } = useLanguage(); // Certifique-se de que o locale está disponível no contexto
+  const { t, locale } = useLanguage(); 
   const [visibleProjects, setVisibleProjects] = useState(3);
 
-  // Buscar projetos traduzidos baseado no locale atual
   const projectsData = getTranslatedProjects(locale);
 
   const loadMore = () => {
@@ -32,7 +31,6 @@ const Projects = () => {
                          flex flex-col h-full hover:scale-[1.02] hover:-translate-y-2
                          cursor-pointer rounded-xl shadow-lg shadow-black/5"
             >
-              {/* Imagem do projeto sem Safari */}
               <div className="relative h-64 bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-900 
                               border-b border-white/10 dark:border-black/10 flex items-center justify-center overflow-hidden">
                 <img

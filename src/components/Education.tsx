@@ -31,55 +31,42 @@ const Education: React.FC = () => {
   const { t, locale } = useLanguage();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Dados de educação com logo e ícone
-  const educationData: Education[] = [
-    {
-      degree: "Tecnologo em Desenvolvimento de Software Multiplataforma",
-      institution: "FATEC Zona Leste",
-      startDate: "2023-02-01",
-      endDate: "2025-12-01",
-      description: "Formação voltada para a criação de soluções tecnológicas completas, com foco em desenvolvimento de software para desktop, web, dispositivos móveis, aplicações em nuvem e Internet das Coisas (IoT).Durante o curso, estudei disciplinas fundamentais como lógica de programação, algoritmos, banco de dados, inteligência artificial, computação em nuvem, segurança da informação, engenharia de software, UX (experiência do usuário) e metodologias ágeis.",
-      logo: fatec,
-      icon: GraduationCap,
-      color: "from-blue-600 to-indigo-600",
-    },
-    {
-      degree: "Tecnico em Automação Industrial Integrado ao Ensino Médio",
-      institution: "ETEC Martin Luther King",
-      startDate: "2020-02-01",
-      endDate: "2022-12-01",
-      description: "Formação técnica com foco na programação, instalação e manutenção de sistemas automatizados. Aprendizado em CLPs, sensores, sistemas elétricos e instrumentação, com integração de conhecimentos em elétrica, eletrônica e segurança industrial.",
-      logo: etec,
-      icon: Award,
-      color: "from-amber-500 to-orange-600",
-    },
-    {
-      degree: "Curso de Idiomas - Inglês",
-      institution: "Wizard Escola de Idiomas",
-      startDate: "2013-02-01",
-      endDate: "2021-12-01",
-      description: "Formação em leitura, escrita, escuta e conversação, com foco na fluência, vocabulário e uso prático do idioma em contextos reais.",
-      logo: wizard,
-      icon: BookOpen,
-      color: "from-red-500 to-red-600",
-    },
-  ];
+  // Pega os dados traduzidos do education.cards
+  const translatedEducation = t('education.cards') as unknown as Array<{
+    degree: string;
+    institution: string;
+    description: string;
+  }>;
 
-  // Add more education entries with different color themes:
-  // Business: "from-green-500 to-emerald-600"
-  // Design: "from-pink-500 to-rose-600"
-  // Medicine: "from-red-500 to-red-600"
-  // Law: "from-purple-500 to-violet-600"
-  // Arts: "from-indigo-500 to-purple-600"
-  // Science: "from-cyan-500 to-blue-600"
-  // Mathematics: "from-slate-500 to-gray-600"
+  // Construindo educationData com logos, ícones e cores fixas
+  const educationData: Education[] = translatedEducation.map((item, index) => {
+    const logos = [fatec, etec, wizard];
+    const icons = [GraduationCap, Award, BookOpen];
+    const colors = ["from-blue-600 to-indigo-600", "from-amber-500 to-orange-600", "from-red-500 to-red-600"];
 
+    return {
+      degree: item.degree,
+      institution: item.institution,
+      description: item.description,
+      startDate: index === 0 ? "2023-02-01" : index === 1 ? "2020-02-01" : "2013-02-01", // mantendo datas fixas
+      endDate: index === 0 ? "2025-12-01" : index === 1 ? "2022-12-01" : "2021-12-01",
+      logo: logos[index],
+      icon: icons[index],
+      color: colors[index],
+    };
+  });
 
-  // Dados de idiomas
+  // Dados de idiomas (usando labels traduzidos)
+  const languageLevels = t('education.languageLevels') as unknown as {
+    english: string;
+    portuguese: string;
+    spanish: string;
+  };
+
   const languageData: Language[] = [
-    { name: "English", level: "Avançado", certificate: "TOEIC: 780/1000", flag: "🇺🇸" },
-    { name: "Portuguese", level: "Nativo", flag: "🇧🇷" },
-    { name: "Spanish", level: "Básico", flag: "🇪🇸" },
+    { name: "English", level: languageLevels.english, certificate: "TOEIC: 780/1000", flag: "🇺🇸" },
+    { name: "Portuguese", level: languageLevels.portuguese, flag: "🇧🇷" },
+    { name: "Spanish", level: languageLevels.spanish, flag: "🇪🇸" },
   ];
 
   // Formata data segundo locale
@@ -87,7 +74,6 @@ const Education: React.FC = () => {
     const date = new Date(dateString);
     return date.toLocaleDateString(locale === 'pt' ? 'pt-BR' : 'en-US', { year: 'numeric', month: 'long' });
   };
-
 
   return (
     <section id="education" className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">

@@ -47,6 +47,8 @@ export const translations: Translations = {
       title: 'About Me',
       connect: 'Connect With Me',
       resume: 'Resume',
+      description: 'I am passionate about technology, constantly seeking to improve my knowledge and skills in this dynamic and ever-evolving field. My soft skills are fundamental to my professional success, as I have exceptional communication abilities that allow me to collaborate effectively in multidisciplinary teams. I am proactive and resilient, always looking for creative solutions to complex challenges.',
+
     },
 
     skills: {
@@ -75,7 +77,28 @@ export const translations: Translations = {
       title: 'Work Experience',
       present: 'Present',
       location: 'Location',
+      description: 'Description',
+      techTitle: 'Technologies Used',
+      viewDetails: 'View Details',
+      jobs: {
+        job1: {
+          position: 'IT Intern',
+          description: 'I participated in the entire process of programming and testing vehicle telemetry equipment, increasing productivity through automations created in Notion and Excel. I developed training materials (videos and documents) for platform clients, contributing to better user experience and satisfaction. I also created two web systems to convert encrypted codes, optimizing a process previously done manually and significantly reducing the technical team’s workload.',
+          location: 'São Paulo, SP',
+        },
+        job2: {
+          position: 'AI Training Expert',
+          description: 'I work on training and improving AI models by evaluating and adjusting prompts and responses in English and Portuguese. I deal with a wide variety of topics, mainly focused on analyzing AI-generated code, performing debugging, refactoring, and quality testing to ensure more accurate, coherent, and efficient results.',
+          location: 'São Paulo, SP (remote)',
+        },
+        job3: {
+          position: 'English Teacher',
+          description: 'I taught hybrid English classes, with part of the students in person and part online. I created personalized study materials and a virtual learning environment on Discord with tips, notes, and additional exercises. I also led group activities to make learning more engaging and interactive, enhancing language development through collaboration.',
+          location: 'São Paulo, SP',
+        },
+      },
     },
+
 
     education: {
       title: 'Education & Language',
@@ -83,31 +106,75 @@ export const translations: Translations = {
       institution: 'Institution',
       period: 'Period',
       languages: 'Languages',
+      cards: [
+        {
+          degree: 'Technologist in Multiplatform Software Development',
+          institution: 'FATEC Zona Leste',
+          description: 'Training focused on creating complete technological solutions, with emphasis on software development for desktop, web, mobile devices, cloud applications, and the Internet of Things (IoT). During the course, I studied essential subjects such as programming logic, algorithms, databases, artificial intelligence, cloud computing, information security, software engineering, UX (user experience), and agile methodologies.',
+        },
+        {
+          degree: 'Industrial Automation Technician Integrated with High School',
+          institution: 'ETEC Martin Luther King',
+          description: 'Technical training focused on programming, installation, and maintenance of automated systems. Learned about PLCs, sensors, electrical systems, and instrumentation, integrating knowledge in electricity, electronics, and industrial safety.',
+        },
+        {
+          degree: 'Language Course - English',
+          institution: 'Wizard Language School',
+          description: 'Training in reading, writing, listening, and conversation, focused on fluency, vocabulary, and practical use of the language in real-life situations.',
+        },
+      ],
+      languageLevels: {
+        english: 'Advanced',
+        portuguese: 'Native',
+        spanish: 'Basic',
+      },
+
     },
 
     certifications: {
-      title: 'Courses & Certifications',
-      issued: 'Issued by:',
-      date: 'Date:',
+      title: "Certifications & Courses",
+      description: "My journey of continuous learning and professional achievements",
+      tabs: {
+        certifications: "Certifications",
+        courses: "Courses",
+        all: "All",
+      },
+      badges: {
+        certification: "Certification",
+        course: "Course",
+        special: "Special",
+      },
+      buttonViewCredential: "View Credential",
+      noItemsFound: "No items found",
+      loadMore: "Load More",
     },
 
     tools: {
-      title: 'Tools & Software',
+      title: "Known Tools",
+      skillLevels: {
+        basic: "Basic",
+        intermediate: "Intermediate",
+        advanced: "Advanced",
+      },
     },
 
-    contact: {
-      title: 'Contact Me',
-      name: 'Name',
-      email: 'Email',
-      message: 'Message',
-      send: 'Send Message',
-      success: 'Your message has been sent!',
-      error: 'There was an error sending your message.',
-      nameRequired: 'Name is required',
-      emailRequired: 'Email is required',
-      emailInvalid: 'Email is invalid',
-      messageRequired: 'Message is required',
-    },
+
+     contact: {
+      title: "Get in Touch",
+      email: "Email",
+      phone: "Phone",
+      location: "Location",
+      socialMedia: "Social Media",
+      whatsapp: {
+        title: "Contact me via WhatsApp",
+        subtitle: "Click the button below to start a chat with me on WhatsApp",
+        logoAlt: "WhatsApp Logo",
+        quickReply: "Quick reply guaranteed →",
+        openButton: "Open WhatsApp"
+      }
+    }
+  
+
   },
 
   pt: {
@@ -147,6 +214,8 @@ export const translations: Translations = {
       title: 'Sobre Mim',
       connect: 'Conecte-se Comigo',
       resume: 'Currículo',
+      description: 'Sou uma pessoa apaixonada por tecnologia, constantemente buscando aprimorar meu conhecimento e habilidades nessa área dinâmica e em constante evolução. Minhas soft skills são fundamentais para meu sucesso profissional, pois possuo uma capacidade excepcional de comunicação, o que me permite colaborar efetivamente em equipes multidisciplinares. Sou proativo e resiliente, sempre buscando soluções criativas para desafios complexos.',
+
     },
 
     skills: {
@@ -156,7 +225,7 @@ export const translations: Translations = {
       advanced: 'Avançado',
     },
 
-    
+
 
     projects: {
       title: 'Projetos',
@@ -170,13 +239,35 @@ export const translations: Translations = {
       viewCode: 'Ver Código',
       liveDemo: 'Demonstração',
       documentation: 'Documentação',
-      loadMore: 'Carregar Mais Projetos',    },
+      loadMore: 'Carregar Mais Projetos',
+    },
 
     experience: {
       title: 'Experiência Profissional',
       present: 'Presente',
       location: 'Local',
+      description: 'Descrição',
+      techTitle: 'Tecnologias Desenvolvidas',
+      viewDetails: 'Ver Detalhes',
+      jobs: {
+        job1: {
+          position: 'Estagiário de T.I',
+          description: 'Participei de todo o processo de programação e testes de equipamentos de telemetria veicular, aumentando a produtividade com automações criadas no Notion e Excel. Desenvolvi materiais de treinamento (vídeos e documentos) voltados aos clientes da plataforma, contribuindo para a melhoria na experiência e satisfação. Também atuei na criação de dois sistemas web para conversão de códigos criptografados, otimizando um processo que antes era feito manualmente e reduzindo significativamente o tempo de trabalho da equipe técnica.',
+          location: 'São Paulo, SP',
+        },
+        job2: {
+          position: 'Especialista em Treinamento de IA',
+          description: 'Atuo no treinamento e aprimoramento de modelos de IA, avaliando e ajustando prompts e respostas em inglês e português. Trabalho com uma ampla variedade de temas, com foco principal na análise de códigos gerados por IA, realizando tarefas como debug, refatoração e testes de qualidade para garantir respostas mais precisas, coerentes e eficientes.',
+          location: 'São Paulo, SP (remoto)',
+        },
+        job3: {
+          position: 'Professor de Inglês',
+          description: 'Ministrei aulas de Inglês em formato híbrido, com parte dos alunos presencialmente e outra parte online. Elaborei materiais de estudo personalizados e criei um ambiente virtual no Discord com dicas, anotações e exercícios complementares. Além disso, promovi dinâmicas em grupo para tornar o aprendizado mais interativo e engajador, potencializando a evolução no idioma de forma colaborativa.',
+          location: 'São Paulo, SP',
+        },
+      },
     },
+
 
     education: {
       title: 'Formação Acadêmica & Idiomas',
@@ -184,30 +275,70 @@ export const translations: Translations = {
       institution: 'Instituição',
       period: 'Período',
       languages: 'Idiomas',
+      cards: [
+        {
+          degree: 'Tecnólogo em Desenvolvimento de Software Multiplataforma',
+          institution: 'FATEC Zona Leste',
+          description: 'Formação voltada para a criação de soluções tecnológicas completas, com foco em desenvolvimento de software para desktop, web, dispositivos móveis, aplicações em nuvem e Internet das Coisas (IoT).Durante o curso, estudei disciplinas fundamentais como lógica de programação, algoritmos, banco de dados, inteligência artificial, computação em nuvem, segurança da informação, engenharia de software, UX (experiência do usuário) e metodologias ágeis.',
+        },
+        {
+          degree: 'Técnico em Automação Industrial Integrado ao Ensino Médio',
+          institution: 'ETEC Martin Luther King',
+          description: 'Formação técnica com foco na programação, instalação e manutenção de sistemas automatizados. Aprendizado em CLPs, sensores, sistemas elétricos e instrumentação, com integração de conhecimentos em elétrica, eletrônica e segurança industrial.',
+        },
+        {
+          degree: 'Curso de Idiomas - Inglês',
+          institution: 'Wizard Escola de Idiomas',
+          description: 'Formação em leitura, escrita, escuta e conversação, com foco na fluência, vocabulário e uso prático do idioma em contextos reais.',
+        },
+      ],
+      languageLevels: {
+        english: 'Avançado',
+        portuguese: 'Nativo',
+        spanish: 'Básico',
+      },
     },
 
     certifications: {
-      title: 'Cursos & Certificados',
-      issued: 'Emitido por:',
-      date: 'Data:',
+      title: "Certificações & Cursos",
+      description: "Minha jornada de aprendizado contínuo e conquistas profissionais",
+      tabs: {
+        certifications: "Certificações",
+        courses: "Cursos",
+        all: "Todos",
+      },
+      badges: {
+        certification: "Certificação",
+        course: "Curso",
+        special: "Especial",
+      },
+      buttonViewCredential: "Ver Credencial",
+      noItemsFound: "Nenhum item encontrado",
+      loadMore: "Carregar Mais",
     },
 
     tools: {
-      title: 'Ferramentas & Software',
+      title: "Ferramentas Conhecidas",
+      skillLevels: {
+        basic: "Básico",
+        intermediate: "Intermediário",
+        advanced: "Avançado",
+      },
     },
 
     contact: {
-      title: 'Contate-me',
-      name: 'Nome',
-      email: 'Email',
-      message: 'Mensagem',
-      send: 'Enviar Mensagem',
-      success: 'Sua mensagem foi enviada!',
-      error: 'Houve um erro ao enviar sua mensagem.',
-      nameRequired: 'Nome é obrigatório',
-      emailRequired: 'Email é obrigatório',
-      emailInvalid: 'Email é inválido',
-      messageRequired: 'Mensagem é obrigatória',
-    },
+      title: "Entre em Contato",
+      email: "Email",
+      phone: "Telefone",
+      location: "Localização",
+      socialMedia: "Redes Sociais",
+      whatsapp: {
+        title: "Entre em contato via WhatsApp",
+        subtitle: "Clique no botão abaixo para iniciar uma conversa comigo no WhatsApp",
+        logoAlt: "Logo do WhatsApp",
+        quickReply: "Resposta rápida garantida →",
+        openButton: "Abrir WhatsApp"
+      }
+    }
   },
 };

@@ -1,12 +1,11 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Github, Linkedin } from 'lucide-react';
-
-import prof from "../assets/profile.jpg"
+import prof from "../assets/me.jpg"
 
 const About = () => {
   const { t } = useLanguage();
-  
+
   return (
     <section id="about" className="py-20 bg-primary/5">
       <div className="container-section">
@@ -30,7 +29,7 @@ const About = () => {
               <h3 className="text-2xl font-bold text-primary">Gabriel Barbosa</h3>
               
               <p className="text-lg">
-                Sou uma pessoa apaixonada por tecnologia, constantemente buscando aprimorar meu conhecimento e habilidades nessa área dinâmica e em constante evolução. Minhas soft skills são fundamentais para meu sucesso profissional, pois possuo uma capacidade excepcional de comunicação, o que me permite colaborar efetivamente em equipes multidisciplinares. Sou proativo e resiliente, sempre buscando soluções criativas para desafios complexos.
+                {t('about.description')}
               </p>
               
               <div className="pt-4">
