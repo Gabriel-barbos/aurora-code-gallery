@@ -10,7 +10,7 @@ const Hero = () => {
     github: 'https://github.com/Gabriel-barbos',
     linkedin: 'https://www.linkedin.com/in/gabriel-barbosa-da-silva-35bb19256/',
     email: 'mailto:gabriel.barbosa79@outlook.com',
-    cv: './public/docs/CV_GABRIEL-BARBOSA 09.07.pdf' 
+    cv: 'docs/CV_GABRIEL-BARBOSA 09.07.pdf' 
   };
 
   return (

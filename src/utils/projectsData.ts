@@ -294,7 +294,7 @@ export const projectsBaseData: Omit<Project, 'title' | 'description' | 'features
   {
     id: 5,
     image: devuhub,
-    previewUrl: '/public/docs/Devhub.pdf',
+    previewUrl: 'docs/Devhub.pdf',
     repoUrl: 'https://github.com/Gabriel-barbos/Devhub.git',
     technologies: [
       { name: 'Next', icon: next },
@@ -306,7 +306,7 @@ export const projectsBaseData: Omit<Project, 'title' | 'description' | 'features
   {
     id: 6,
     image: nutrihub,
-    previewUrl: '/public/docs/NutriHub.pdf',
+    previewUrl: 'docs/NutriHub.pdf',
     repoUrl: 'https://github.com/gabrielmeiradev/nutrihub',
     technologies: [
       { name: 'HTML', icon: html },
@@ -318,7 +318,7 @@ export const projectsBaseData: Omit<Project, 'title' | 'description' | 'features
   {
     id: 7,
     image: michele,
-    previewUrl: '/public/docs/MicheleCortinas.pdf',
+    previewUrl: 'docs/MicheleCortinas.pdf',
     repoUrl: 'https://github.com/Gabriel-barbos/Michele-Cortinas',
     technologies: [
       { name: 'React', icon: react },

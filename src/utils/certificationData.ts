@@ -46,7 +46,7 @@ export const certifications: Certification[] = [
     issuer: "Digital Innovation One",
     issuerLogo: dio,
     date: "2025-02-08",
-    credentialUrl: "/public/docs/IA.pdf",
+    credentialUrl: "docs/IA.pdf",
     skills: ["Machine Learning", "AI", "prompt engineering"],
     type: "certification",
     theme: "dio"
