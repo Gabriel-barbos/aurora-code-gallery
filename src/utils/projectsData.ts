@@ -270,8 +270,8 @@ export const projectsBaseData: Omit<Project, 'title' | 'description' | 'features
   {
     id: 3,
     image: campusface,
-    previewUrl: 'https://sistema-de-vendas2.vercel.app/',
-    repoUrl: 'https://github.com/Gabriel-barbos/SistemaDeVendas',
+    previewUrl: 'https://www.figma.com/slides/e9dU490NWBNaWJadKCaInl/CampusFace_Apresentação1?node-id=1-42&t=KWX84i36Y183YUl0-0',
+    repoUrl: 'https://github.com/Gabriel-barbos/CampusFace',
     technologies: [
       { name: 'React Native', icon: reactNative },
       { name: 'JavaScript', icon: js },
